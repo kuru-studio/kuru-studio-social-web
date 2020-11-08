@@ -1,0 +1,8 @@
+{
+  "name": "social-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:kuru-studio/kuru-studio-social-web.git",
+  "author": "BosEriko <bos.eriko@gmail.com>",
+  "license": "MIT"
+}
