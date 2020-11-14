@@ -28,7 +28,7 @@ if (!firebase.apps.length) {
 }
 
 function HomePage() {
-  const submitForm = (event) => {
+  const registerSubmit = (event) => {
     event.preventDefault();
 
     const emailData = event.target.email.value;
@@ -40,14 +40,37 @@ function HomePage() {
     });
   };
 
+  const loginSubmit = (event) => {
+    event.preventDefault();
+
+    const emailData = event.target.email.value;
+    const passwordData = event.target.password.value;
+
+    firebase.auth().signInWithEmailAndPassword(emailData, passwordData).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
+  };
+
   return (
     <>
       <div>Welcome to {process.env.SITE_NAME}!</div>
-      <form onSubmit={submitForm}>
-        <input type="email" name="email" />
-        <input type="password" name="password" />
-        <button>submit</button>
-      </form>
+      <div>
+        <form onSubmit={registerSubmit}>
+          <div>Register</div>
+          <input type="email" name="email" />
+          <input type="password" name="password" />
+          <button>submit</button>
+        </form>
+      </div>
+      <div>
+        <form onSubmit={loginSubmit}>
+          <div>Login</div>
+          <input type="email" name="email" />
+          <input type="password" name="password" />
+          <button>submit</button>
+        </form>
+      </div>
     </>
   );
 }
