@@ -29,10 +29,15 @@ if (!firebase.apps.length) {
 
 function HomePage() {
   const submitForm = (event) => {
-    alert('test');
     event.preventDefault();
-    console.log(event.target.email.value);
-    console.log(event.target.password.value);
+
+    const emailData = event.target.email.value;
+    const passwordData = event.target.password.value;
+
+    firebase.auth().createUserWithEmailAndPassword(emailData, passwordData).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
   };
 
   return (
