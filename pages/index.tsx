@@ -12,8 +12,6 @@ interface IFirebaseConfig {
   measurementId: string;
 }
 
-const checkWindowObject: boolean = typeof window !== 'undefined';
-
 const firebaseConfig: IFirebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: `${process.env.PROJECT_ID}.firebaseapp.com`,
@@ -30,18 +28,16 @@ if (!firebase.apps.length) {
 }
 
 function listenToCurrentUserState(): void {
-  if (checkWindowObject) {
-    firebase.auth().onAuthStateChanged((user: any): void => {
-      if (user) {
-        user.getIdToken().then((idToken: string): void => {
-          console.log('Token:', `Bearer ${idToken}`);
-        });
-        window.sessionStorage.user = JSON.stringify(user);
-      } else {
-        console.log('Not logged in.');
-      }
-    });
-  }
+  firebase.auth().onAuthStateChanged((user: any): void => {
+    if (user) {
+      user.getIdToken().then((idToken: string): void => {
+        console.log('Token:', `Bearer ${idToken}`);
+      });
+      window.sessionStorage.user = JSON.stringify(user);
+    } else {
+      console.log('Not logged in.');
+    }
+  });
 }
 
 function HomePage() {
