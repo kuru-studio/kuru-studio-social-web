@@ -6,12 +6,13 @@
   "author": "BosEriko <bos.eriko@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "next": "^10.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "scripts": {
-    "dev": "next dev -p 3001",
+    "develop": "next dev -p 3001",
     "build": "next build",
     "start": "next start"
   },
