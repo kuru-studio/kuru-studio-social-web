@@ -12,6 +12,8 @@ interface IFirebaseConfig {
   measurementId: string;
 }
 
+const checkWindowObject: boolean = typeof window !== 'undefined';
+
 const firebaseConfig: IFirebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: `${process.env.PROJECT_ID}.firebaseapp.com`,
@@ -25,6 +27,21 @@ const firebaseConfig: IFirebaseConfig = {
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
+}
+
+function listenToCurrentUserState(): void {
+  if (checkWindowObject) {
+    firebase.auth().onAuthStateChanged((user: any): void => {
+      if (user) {
+        user.getIdToken().then((idToken: string): void => {
+          console.log('Token:', `Bearer ${idToken}`);
+        });
+        window.sessionStorage.user = JSON.stringify(user);
+      } else {
+        console.log('Not logged in.');
+      }
+    });
+  }
 }
 
 function HomePage() {
@@ -51,6 +68,8 @@ function HomePage() {
       var errorMessage = error.message;
     });
   };
+
+  listenToCurrentUserState();
 
   return (
     <>
