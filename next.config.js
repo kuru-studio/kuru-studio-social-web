@@ -7,6 +7,7 @@ module.exports = {
     PROJECT_ID: process.env.PROJECT_ID,
     SENDER_ID: process.env.SENDER_ID,
     APP_ID: process.env.APP_ID,
-    MEASUREMENT_ID: process.env.MEASUREMENT_ID
+    MEASUREMENT_ID: process.env.MEASUREMENT_ID,
+    API_PATH: process.env.API_PATH,
   },
 }
