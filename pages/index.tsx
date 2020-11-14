@@ -2,14 +2,14 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 interface IFirebaseConfig {
-  apiKey?: string;
-  authDomain?: string;
-  databaseURL?: string;
-  projectId?: string;
-  storageBucket?: string;
-  messagingSenderId?: string;
-  appId?: string;
-  measurementId?: string;
+  apiKey: string;
+  authDomain: string;
+  databaseURL: string;
+  projectId: string;
+  storageBucket: string;
+  messagingSenderId: string;
+  appId: string;
+  measurementId: string;
 }
 
 const firebaseConfig: IFirebaseConfig = {
@@ -34,6 +34,7 @@ function HomePage() {
     console.log(event.target.email.value);
     console.log(event.target.password.value);
   };
+
   return (
     <>
       <div>Welcome to {process.env.SITE_NAME}!</div>
