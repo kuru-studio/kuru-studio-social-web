@@ -3,6 +3,11 @@ import "firebase/auth";
 
 import Head from 'next/head'
 
+import { GET } from '../utils/request';
+
+import { LoginForm } from '../components/LoginForm';
+import { RegisterForm } from '../components/RegisterForm';
+
 interface IFirebaseConfig {
   apiKey: string;
   authDomain: string;
@@ -46,62 +51,32 @@ function listenToCurrentUserState(): void {
   });
 }
 
-const registerSubmit = (event) => {
-  event.preventDefault();
-
-  const emailData = event.target.email.value;
-  const passwordData = event.target.password.value;
-
-  firebase.auth().createUserWithEmailAndPassword(emailData, passwordData).catch(function(error) {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
-};
-
-const loginSubmit = (event) => {
-  event.preventDefault();
-
-  const emailData = event.target.email.value;
-  const passwordData = event.target.password.value;
-
-  firebase.auth().signInWithEmailAndPassword(emailData, passwordData).catch(function(error) {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
-};
-
 listenToCurrentUserState();
 
 function LoggedOutPage() {
   return (
     <>
-      <div>
-        <form onSubmit={registerSubmit}>
-          <div>Register</div>
-          <input type="email" name="email" />
-          <input type="password" name="password" />
-          <button>submit</button>
-        </form>
-      </div>
-      <div>
-        <form onSubmit={loginSubmit}>
-          <div>Login</div>
-          <input type="email" name="email" />
-          <input type="password" name="password" />
-          <button>submit</button>
-        </form>
-      </div>
+      <LoginForm />
+      <RegisterForm />
     </>
   );
 }
 
-function LoggedInPage() {
-  return (
-    <>
-      Logged in page.
-    </>
-  );
-}
+// async function LoggedInPage() {
+  // const token = JSON.parse(window.sessionStorage.user);
+  // const data = await GET(`/users`, {
+    // headers: {
+      // 'Content-Type': 'application/json',
+      // Authorization: `Bearer ${token}`
+    // },
+  // });
+//
+  // return (
+    // <>
+      // users: { data.forEach((item) => (item))  }
+    // </>
+  // );
+// }
 
 function HomePage() {
   return (
@@ -109,12 +84,8 @@ function HomePage() {
       <Head>
         <title>{process.env.SITE_NAME}</title>
       </Head>
-      <div>Welcome to {process.env.SITE_NAME}!</div>
-      {
-        userLoggedIn
-          ? <LoggedInPage />
-          : <LoggedOutPage />
-      }
+      <div>Welcome to {process.env.SITE_NAME}!!!</div>
+      <LoggedOutPage />
     </>
   );
 }
