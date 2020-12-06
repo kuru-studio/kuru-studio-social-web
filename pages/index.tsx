@@ -8,6 +8,8 @@ import { GET } from '../utils/request';
 import { LoginForm } from '../components/LoginForm';
 import { RegisterForm } from '../components/RegisterForm';
 
+import { LogOutButton } from '../components/LogOutButton';
+
 interface IFirebaseConfig {
   apiKey: string;
   authDomain: string;
@@ -62,21 +64,21 @@ function LoggedOutPage() {
   );
 }
 
-// async function LoggedInPage() {
-  // const token = JSON.parse(window.sessionStorage.user);
-  // const data = await GET(`/users`, {
-    // headers: {
-      // 'Content-Type': 'application/json',
-      // Authorization: `Bearer ${token}`
-    // },
-  // });
-//
-  // return (
-    // <>
-      // users: { data.forEach((item) => (item))  }
-    // </>
-  // );
-// }
+async function LoggedInPage() {
+  const token = JSON.parse(window.sessionStorage.user);
+  const data = await GET(`/users`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    },
+  });
+
+  return (
+    <>
+      users: { data.forEach((item) => (item))  }
+    </>
+  );
+}
 
 function HomePage() {
   return (
@@ -85,7 +87,9 @@ function HomePage() {
         <title>{process.env.SITE_NAME}</title>
       </Head>
       <div>Welcome to {process.env.SITE_NAME}!!!</div>
+      { userLoggedIn ? "hohoho" : "haha" }
       <LoggedOutPage />
+      <LogOutButton />
     </>
   );
 }
