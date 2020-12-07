@@ -1,0 +1,105 @@
+/* eslint-disable no-console */
+/* eslint-disable no-underscore-dangle */
+// ANCHOR Firebase
+// DOCS: https://firebase.google.com/docs/auth/web/manage-users
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+
+// ANCOR: Redux Imports
+import { reduxStore } from '../state';
+import { authenticate as authenticateAction } from '../state/store/modules/authenticate/action';
+
+// ANCHOR Check Window Object's Existence
+import { checkWindowObject } from '../checkWindowObject';
+
+// ANCHOR Firebase Config Type
+interface IFirebaseConfig {
+  apiKey?: string;
+  authDomain?: string;
+  databaseURL?: string;
+  projectId?: string;
+  storageBucket?: string;
+  messagingSenderId?: string;
+  appId?: string;
+  measurementId?: string;
+}
+
+// ANCHOR Firebase Config
+const _firebaseConfig: IFirebaseConfig = {
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+};
+
+// ANCHOR Base Authentication
+const _baseAuthentication = (provider: any): void => {
+  firebase.auth().signInWithPopup(provider).then((result: any): void => {
+    console.log('Successfully signed in.', result);
+  }).catch((error: any): void => {
+    console.error('Something went wrong while signing in!', error);
+  });
+};
+
+// ANCHOR Initialize Firebase
+if (!firebase.apps.length) {
+  firebase.initializeApp(_firebaseConfig);
+}
+
+// ANCHOR User Logged In
+export function isUserLoggedIn(): boolean {
+  return !!(checkWindowObject && window.sessionStorage.length);
+}
+
+// ANCHOR State Listener
+export function listenToCurrentUserState(): void {
+  if (checkWindowObject) {
+    firebase.auth().onAuthStateChanged((user: any): void => {
+      if (user) {
+        user.getIdToken().then((idToken: string): void => {
+          reduxStore.dispatch(authenticateAction(idToken));
+        });
+        window.sessionStorage.user = JSON.stringify(user);
+      } else {
+        reduxStore.dispatch(authenticateAction(null));
+      }
+    });
+  }
+}
+
+// ANCHOR User Sign Out
+export function userSignOut(): void {
+  firebase.auth().signOut().then((): void => {
+    console.log('User has been signed out.');
+  }).catch((error: any): void => {
+    console.error('Something went wrong while signing out!', error);
+  });
+}
+
+// ANCHOR Google Authentication
+// DOCS: https://firebase.google.com/docs/auth/web/google-signin
+export const googleSignIn = (): void => {
+  _baseAuthentication(new firebase.auth.GoogleAuthProvider());
+};
+
+// ANCHOR Facebook Authentication
+// DOCS: https://firebase.google.com/docs/auth/web/facebook-login
+export const facebookSignIn = (): void => {
+  _baseAuthentication(new firebase.auth.FacebookAuthProvider());
+};
+
+// ANCHOR GitHub Authentication
+// DOCS: https://firebase.google.com/docs/auth/web/github-auth
+export const githubSignIn = (): void => {
+  _baseAuthentication(new firebase.auth.GithubAuthProvider());
+};
+
+// ANCHOR Twitter Authentication
+// DOCS: https://firebase.google.com/docs/auth/web/twitter-login
+export const twitterSignIn = (): void => {
+  _baseAuthentication(new firebase.auth.TwitterAuthProvider());
+};
