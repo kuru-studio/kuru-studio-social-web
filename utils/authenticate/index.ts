@@ -1,13 +1,11 @@
-/* eslint-disable no-console */
-/* eslint-disable no-underscore-dangle */
 // ANCHOR Firebase
 // DOCS: https://firebase.google.com/docs/auth/web/manage-users
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
+import * as firebase from "firebase/app";
+import "firebase/auth";
 
 // ANCOR: Redux Imports
-import { reduxStore } from '../state';
-import { authenticate as authenticateAction } from '../state/store/modules/authenticate/action';
+import { reduxStore } from '../../utils/state/store';
+import { authenticateAction } from '../state/action/';
 
 // ANCHOR Check Window Object's Existence
 import { checkWindowObject } from '../checkWindowObject';
@@ -33,17 +31,17 @@ const _firebaseConfig: IFirebaseConfig = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.FIREBASE_APP_ID,
-  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
 // ANCHOR Base Authentication
 const _baseAuthentication = (provider: any): void => {
   firebase.auth().signInWithPopup(provider).then((result: any): void => {
     console.log('Successfully signed in.', result);
-  }).catch((error: any): void => {
+  }).catch(function(error: any): void {
     console.error('Something went wrong while signing in!', error);
   });
-};
+}
 
 // ANCHOR Initialize Firebase
 if (!firebase.apps.length) {
@@ -58,7 +56,7 @@ export function isUserLoggedIn(): boolean {
 // ANCHOR State Listener
 export function listenToCurrentUserState(): void {
   if (checkWindowObject) {
-    firebase.auth().onAuthStateChanged((user: any): void => {
+    firebase.auth().onAuthStateChanged(function(user: any): void {
       if (user) {
         user.getIdToken().then((idToken: string): void => {
           reduxStore.dispatch(authenticateAction(idToken));
@@ -75,7 +73,7 @@ export function listenToCurrentUserState(): void {
 export function userSignOut(): void {
   firebase.auth().signOut().then((): void => {
     console.log('User has been signed out.');
-  }).catch((error: any): void => {
+  }).catch(function(error: any): void {
     console.error('Something went wrong while signing out!', error);
   });
 }
@@ -84,22 +82,22 @@ export function userSignOut(): void {
 // DOCS: https://firebase.google.com/docs/auth/web/google-signin
 export const googleSignIn = (): void => {
   _baseAuthentication(new firebase.auth.GoogleAuthProvider());
-};
+}
 
 // ANCHOR Facebook Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/facebook-login
 export const facebookSignIn = (): void => {
   _baseAuthentication(new firebase.auth.FacebookAuthProvider());
-};
+}
 
 // ANCHOR GitHub Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/github-auth
 export const githubSignIn = (): void => {
   _baseAuthentication(new firebase.auth.GithubAuthProvider());
-};
+}
 
 // ANCHOR Twitter Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/twitter-login
 export const twitterSignIn = (): void => {
   _baseAuthentication(new firebase.auth.TwitterAuthProvider());
-};
+}
