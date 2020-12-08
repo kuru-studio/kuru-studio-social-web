@@ -23,7 +23,7 @@ interface IFirebaseConfig {
 }
 
 // ANCHOR: Firebase Config
-const _firebaseConfig: IFirebaseConfig = {
+const $firebaseConfig: IFirebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: `${process.env.PROJECT_ID}.firebaseapp.com`,
   databaseURL: `https://${process.env.PROJECT_ID}.firebaseio.com`,
@@ -34,8 +34,8 @@ const _firebaseConfig: IFirebaseConfig = {
   measurementId: `G-${process.env.MEASUREMENT_ID}`,
 };
 
-// ANCHOR: Base Authentication
-const _baseAuthentication = (provider: any): void => {
+// ANCHOR: Base Social Authentication
+const $baseSocialAuthentication = (provider: any): void => {
   firebase.auth().signInWithPopup(provider).then((result: any): void => {
     console.log('Successfully signed in.', result);
   }).catch(function(error: any): void {
@@ -43,9 +43,26 @@ const _baseAuthentication = (provider: any): void => {
   });
 }
 
+// ANCHOR: Base Password Authentication
+const $basePasswordAuthentication = (
+  email: string,
+  password: string,
+  type: "signInWithEmailAndPassword" | "createUserWithEmailAndPassword",
+): void => {
+  firebase.auth()[type](email, password)
+    .then((user) => {
+      console.log('User has been authenticated.', user);
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.error('Error:', errorMessage, errorCode);
+    });
+}
+
 // ANCHOR: Initialize Firebase
 if (!firebase.apps.length) {
-  firebase.initializeApp(_firebaseConfig);
+  firebase.initializeApp($firebaseConfig);
 }
 
 // ANCHOR: User Logged In
@@ -80,52 +97,42 @@ export function userSignOut(): void {
 
 // ANCHOR: Password Authentication (Create User)
 // DOCS: https://firebase.google.com/docs/auth/web/password-auth
-export const passwordCreate = (email: string, password: string): void => {
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((user) => {
-      console.log('User has been created!', user);
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.error('Error:', errorMessage, errorCode);
-    });
+export const passwordCreate = (
+  email: string,
+  password: string,
+): void => {
+  $basePasswordAuthentication(email, password, "createUserWithEmailAndPassword");
 }
 
 // ANCHOR: Password Authentication (Login User)
 // DOCS: https://firebase.google.com/docs/auth/web/password-auth
-export const passwordSignIn = (email: string, password: string): void => {
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((user) => {
-      console.log('User has been logged in!', user);
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.error('Error:', errorMessage, errorCode);
-    });
+export const passwordSignIn = (
+  email: string,
+  password: string,
+): void => {
+  $basePasswordAuthentication(email, password, "signInWithEmailAndPassword");
 }
 
 // ANCHOR: Google Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/google-signin
 export const googleSignIn = (): void => {
-  _baseAuthentication(new firebase.auth.GoogleAuthProvider());
+  $baseSocialAuthentication(new firebase.auth.GoogleAuthProvider());
 }
 
 // ANCHOR: Facebook Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/facebook-login
 export const facebookSignIn = (): void => {
-  _baseAuthentication(new firebase.auth.FacebookAuthProvider());
+  $baseSocialAuthentication(new firebase.auth.FacebookAuthProvider());
 }
 
 // ANCHOR: GitHub Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/github-auth
 export const githubSignIn = (): void => {
-  _baseAuthentication(new firebase.auth.GithubAuthProvider());
+  $baseSocialAuthentication(new firebase.auth.GithubAuthProvider());
 }
 
 // ANCHOR: Twitter Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/twitter-login
 export const twitterSignIn = (): void => {
-  _baseAuthentication(new firebase.auth.TwitterAuthProvider());
+  $baseSocialAuthentication(new firebase.auth.TwitterAuthProvider());
 }
