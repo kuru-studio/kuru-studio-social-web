@@ -1,6 +1,9 @@
 // ANCHOR: React
 import * as React from 'react';
 
+// ANCHOR: Next
+import Link from 'next/link'
+
 // ANCHOR: Redux
 import { useSelector } from 'react-redux'
 
@@ -37,6 +40,7 @@ export default () => {
               )
         }
       </li>
+      <li><Link href="/">Homepage</Link></li>
     </ul>
   )
 }
