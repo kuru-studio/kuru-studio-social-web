@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useSelector } from 'react-redux'
 
 // ANCHOR: Authentication
-import { facebookSignIn, userSignOut } from '../utils/authenticate';
+import { googleSignIn, userSignOut } from '../utils/authenticate';
 
 // ANCHOR: Interface
 interface IRootState {
@@ -22,7 +22,7 @@ export default () => {
         {
           token
             ? <button onClick={userSignOut}>Sign Out</button>
-            : <button onClick={facebookSignIn}>Sign In with Facebook</button>
+            : <button onClick={googleSignIn}>Sign In with Google</button>
         }
       </li>
     </ul>
