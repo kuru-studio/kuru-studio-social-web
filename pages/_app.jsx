@@ -2,7 +2,7 @@ import * as React from 'react';
 import App from 'next/app';
 
 // ANCHOR: General Imports
-import { listenToCurrentUserState } from '../utils/authenticate';
+import { listenToCurrentUserState } from '../utilities/authenticate';
 
 // ANCOR: Redux Imports
 import { reduxStore } from '../state/store';

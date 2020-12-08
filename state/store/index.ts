@@ -1,7 +1,7 @@
 // ANCOR: Redux Imports
 import { createStore } from 'redux';
 import { rootReducers } from '../reducers';
-import { checkWindowObject } from '../../utils/checkWindowObject';
+import { checkWindowObject } from '../../utilities/checkWindowObject';
 
 // ANCHOR: Redux Devtools Condition
 const reduxDevtoolsToggle: boolean = process.env.NODE_ENV === 'development' && checkWindowObject;
