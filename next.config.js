@@ -2,6 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   env: {
+    NODE_ENV: process.env.NODE_ENV,
     SITE_NAME: process.env.SITE_NAME,
     API_KEY: process.env.API_KEY,
     PROJECT_ID: process.env.PROJECT_ID,

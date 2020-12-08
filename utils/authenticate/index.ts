@@ -4,8 +4,8 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 
 // ANCOR: Redux Imports
-import { reduxStore } from '../../utils/state/store';
-import { authenticateAction } from '../state/action/';
+import { reduxStore } from '../../state/store';
+import { authenticateAction } from '../../state/action';
 
 // ANCHOR Check Window Object's Existence
 import { checkWindowObject } from '../checkWindowObject';
