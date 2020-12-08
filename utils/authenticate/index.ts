@@ -78,6 +78,34 @@ export function userSignOut(): void {
   });
 }
 
+// ANCHOR: Password Authentication (Create User)
+// DOCS: https://firebase.google.com/docs/auth/web/password-auth
+export const passwordCreate = (email: string, password: string): void => {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((user) => {
+      console.log('User has been created!', user);
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.error('Error:', errorMessage, errorCode);
+    });
+}
+
+// ANCHOR: Password Authentication (Login User)
+// DOCS: https://firebase.google.com/docs/auth/web/password-auth
+export const passwordSignIn = (email: string, password: string): void => {
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((user) => {
+      console.log('User has been logged in!', user);
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.error('Error:', errorMessage, errorCode);
+    });
+}
+
 // ANCHOR: Google Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/google-signin
 export const googleSignIn = (): void => {
