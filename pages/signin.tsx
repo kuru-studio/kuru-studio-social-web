@@ -14,13 +14,14 @@ interface IRootState {
 
 // ANCHOR: Sign In Page
 export default () => {
-  const token = useSelector((state: IRootState) => state.authenticateReducer);
+  const token: string | null = useSelector((state: IRootState) => state.authenticateReducer);
+  const userSignedIn: boolean = token ? true : false;
 
   return (
     <ul>
       <li>
         {
-          token
+          userSignedIn
             ? <button onClick={userSignOut}>Sign Out</button>
             : (
                 <>
