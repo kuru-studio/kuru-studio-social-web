@@ -1,4 +1,4 @@
-// ANCHOR Firebase
+// ANCHOR: Firebase
 // DOCS: https://firebase.google.com/docs/auth/web/manage-users
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -7,7 +7,7 @@ import "firebase/auth";
 import { reduxStore } from '../../state/store';
 import { authenticateAction } from '../../state/action';
 
-// ANCHOR Check Window Object's Existence
+// ANCHOR: Check Window Object's Existence
 import { checkWindowObject } from '../checkWindowObject';
 
 // ANCHOR Firebase Config Type
@@ -22,7 +22,7 @@ interface IFirebaseConfig {
   measurementId?: string;
 }
 
-// ANCHOR Firebase Config
+// ANCHOR: Firebase Config
 const _firebaseConfig: IFirebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: `${process.env.PROJECT_ID}.firebaseapp.com`,
@@ -34,7 +34,7 @@ const _firebaseConfig: IFirebaseConfig = {
   measurementId: `G-${process.env.MEASUREMENT_ID}`,
 };
 
-// ANCHOR Base Authentication
+// ANCHOR: Base Authentication
 const _baseAuthentication = (provider: any): void => {
   firebase.auth().signInWithPopup(provider).then((result: any): void => {
     console.log('Successfully signed in.', result);
@@ -43,17 +43,17 @@ const _baseAuthentication = (provider: any): void => {
   });
 }
 
-// ANCHOR Initialize Firebase
+// ANCHOR: Initialize Firebase
 if (!firebase.apps.length) {
   firebase.initializeApp(_firebaseConfig);
 }
 
-// ANCHOR User Logged In
+// ANCHOR: User Logged In
 export function isUserLoggedIn(): boolean {
   return !!(checkWindowObject && window.sessionStorage.length);
 }
 
-// ANCHOR State Listener
+// ANCHOR: State Listener
 export function listenToCurrentUserState(): void {
   if (checkWindowObject) {
     firebase.auth().onAuthStateChanged(function(user: any): void {
@@ -69,7 +69,7 @@ export function listenToCurrentUserState(): void {
   }
 }
 
-// ANCHOR User Sign Out
+// ANCHOR: User Sign Out
 export function userSignOut(): void {
   firebase.auth().signOut().then((): void => {
     console.log('User has been signed out.');
@@ -78,25 +78,25 @@ export function userSignOut(): void {
   });
 }
 
-// ANCHOR Google Authentication
+// ANCHOR: Google Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/google-signin
 export const googleSignIn = (): void => {
   _baseAuthentication(new firebase.auth.GoogleAuthProvider());
 }
 
-// ANCHOR Facebook Authentication
+// ANCHOR: Facebook Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/facebook-login
 export const facebookSignIn = (): void => {
   _baseAuthentication(new firebase.auth.FacebookAuthProvider());
 }
 
-// ANCHOR GitHub Authentication
+// ANCHOR: GitHub Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/github-auth
 export const githubSignIn = (): void => {
   _baseAuthentication(new firebase.auth.GithubAuthProvider());
 }
 
-// ANCHOR Twitter Authentication
+// ANCHOR: Twitter Authentication
 // DOCS: https://firebase.google.com/docs/auth/web/twitter-login
 export const twitterSignIn = (): void => {
   _baseAuthentication(new firebase.auth.TwitterAuthProvider());
