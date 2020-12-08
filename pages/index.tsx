@@ -1,8 +1,4 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-
 import Head from 'next/head'
-
 import Link from 'next/link'
 
 function HomePage() {
