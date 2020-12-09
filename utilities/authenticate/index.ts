@@ -49,15 +49,13 @@ const $basePasswordAuthentication = (
   password: string,
   type: "signInWithEmailAndPassword" | "createUserWithEmailAndPassword",
 ): void => {
-  firebase.auth()[type](email, password)
-    .then((user) => {
-      console.log('User has been authenticated.', user);
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.error('Error:', errorMessage, errorCode);
-    });
+  firebase.auth()[type](email, password).then((user) => {
+    console.log('User has been authenticated.', user);
+  }).catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.error('Error:', errorMessage, errorCode);
+  });
 }
 
 // ANCHOR: Initialize Firebase
@@ -97,19 +95,13 @@ export function userSignOut(): void {
 
 // ANCHOR: Password Authentication (Create User)
 // DOCS: https://firebase.google.com/docs/auth/web/password-auth
-export const passwordCreate = (
-  email: string,
-  password: string,
-): void => {
+export const passwordCreate = (email: string, password: string): void => {
   $basePasswordAuthentication(email, password, "createUserWithEmailAndPassword");
 }
 
 // ANCHOR: Password Authentication (Login User)
 // DOCS: https://firebase.google.com/docs/auth/web/password-auth
-export const passwordSignIn = (
-  email: string,
-  password: string,
-): void => {
+export const passwordSignIn = (email: string, password: string): void => {
   $basePasswordAuthentication(email, password, "signInWithEmailAndPassword");
 }
 
