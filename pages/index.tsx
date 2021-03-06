@@ -1,6 +1,8 @@
+// ANCHOR: Next
 import Head from 'next/head'
 import Link from 'next/link'
 
+// ANCHOR: Home Page
 function HomePage() {
   return (
     <>
