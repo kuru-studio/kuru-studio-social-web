@@ -16,4 +16,4 @@ You need to have **NodeJS** installed on your machine to be able to run the foll
 ```
 
 ## Atomic Design
-This project follows the design pattern called Atomic Design. It's a pattern that divides the design process into 5 distinct parts; mainly Atoms, Molecules, Organisms, Templates and Pages. For more information you can check out this [link](https://atomicdesign.bradfrost.com/chapter-2/).
+This project follows the design pattern called [Atomic Design](https://xd.adobe.com/ideas/process/ui-design/atomic-design-principles-methodology-101/). It's a pattern that divides the design process into 5 distinct parts; mainly Atoms, Molecules, Organisms, Templates and Pages.
