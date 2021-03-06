@@ -1,5 +1,5 @@
 // ANCHOR: Type
-import { INCREMENT, DECREMENT } from '../../action/types';
+import { INCREMENT, DECREMENT } from '../../action/constants';
 
 // ANCHOR: Interface
 interface IAction {

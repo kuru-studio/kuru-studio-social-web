@@ -1,5 +1,5 @@
 // ANCHOR: Type
-import { INCREMENT } from '../../types';
+import { INCREMENT } from '../../constants';
 
 // ANCHOR: Action
 export const incrementAction = (amount: number) => ({
