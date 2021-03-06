@@ -1,4 +1,4 @@
-// ANCHOR: Firebase
+// ANCHOR: Firebase Imports
 // DOCS: https://firebase.google.com/docs/auth/web/manage-users
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -7,10 +7,10 @@ import "firebase/auth";
 import { reduxStore } from '../../state/store';
 import { authenticateAction } from '../../state/action';
 
-// ANCHOR: Check Window Object's Existence
+// ANCHOR: Utility Imports
 import { checkWindowObject } from '../checkWindowObject';
 
-// ANCHOR Firebase Config Type
+// ANCHOR Firebase Config Types
 interface IFirebaseConfig {
   apiKey?: string;
   authDomain?: string;
@@ -22,7 +22,7 @@ interface IFirebaseConfig {
   measurementId?: string;
 }
 
-// ANCHOR: Firebase Config
+// ANCHOR: Firebase Config (Private Object)
 const $firebaseConfig: IFirebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: `${process.env.PROJECT_ID}.firebaseapp.com`,
@@ -34,7 +34,7 @@ const $firebaseConfig: IFirebaseConfig = {
   measurementId: `G-${process.env.MEASUREMENT_ID}`,
 };
 
-// ANCHOR: Base Social Authentication
+// ANCHOR: Base Social Authentication (Private Function)
 const $baseSocialAuthentication = (provider: any): void => {
   firebase.auth().signInWithPopup(provider).then((result: any): void => {
     console.log('Successfully signed in.', result);
@@ -43,7 +43,7 @@ const $baseSocialAuthentication = (provider: any): void => {
   });
 }
 
-// ANCHOR: Base Password Authentication
+// ANCHOR: Base Password Authentication (Private Function)
 const $basePasswordAuthentication = (
   email: string,
   password: string,
