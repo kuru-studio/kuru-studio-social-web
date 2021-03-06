@@ -1,4 +1,4 @@
-// ANCHOR: Type
+// ANCHOR: Constants Import
 import { INCREMENT, DECREMENT } from '../../action/constants';
 
 // ANCHOR: Interface
@@ -7,7 +7,7 @@ interface IAction {
   payload: number;
 }
 
-// ANCHOR: Reducer
+// ANCHOR: Counter Reducer
 export const counterReducer = (state = 0, action: IAction) => {
   switch(action.type) {
     case INCREMENT:

@@ -1,6 +1,7 @@
+// ANCOR: Redux Imports
 import { combineReducers } from 'redux';
 
-// ANCHOR: Modules
+// ANCHOR: Module Imports
 import { counterReducer } from './modules/counter';
 import { authenticateReducer } from './modules/authenticate';
 

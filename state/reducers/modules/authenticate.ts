@@ -1,4 +1,4 @@
-// ANCHOR: Type
+// ANCHOR: Constants Import
 import { AUTHENTICATE } from '../../action/constants';
 
 // ANCHOR: Interface
@@ -7,7 +7,7 @@ interface IAction {
   payload: string | null;
 }
 
-// ANCHOR: Reducer
+// ANCHOR: Authenticate Reducer
 export const authenticateReducer = (state = null, action: IAction) => {
   switch(action.type) {
     case AUTHENTICATE:
