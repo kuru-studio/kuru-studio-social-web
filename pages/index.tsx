@@ -1,16 +1,17 @@
 // ANCHOR: Next
 import Head from 'next/head'
-import Link from 'next/link'
 
-// ANCHOR: Home Page
+// ANCHOR: Template
+import LandingTemplate from '../templates/Landing'
+
+// ANCHOR: HomePage
 function HomePage() {
   return (
     <>
       <Head>
         <title>{process.env.SITE_NAME}</title>
       </Head>
-      <div>Welcome to {process.env.SITE_NAME}!</div>
-      <div><Link href="/signin">Sign In</Link></div>
+      <LandingTemplate />
     </>
   );
 }
