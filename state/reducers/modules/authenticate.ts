@@ -1,3 +1,4 @@
+// ANCHOR: Type
 import { AUTHENTICATE } from '../../action/types';
 
 // ANCHOR: Interface

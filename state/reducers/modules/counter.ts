@@ -1,3 +1,4 @@
+// ANCHOR: Type
 import { INCREMENT, DECREMENT } from '../../action/types';
 
 // ANCHOR: Interface
