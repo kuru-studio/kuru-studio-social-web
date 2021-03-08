@@ -13,13 +13,18 @@ const sagaMiddleware = createSagaMiddleware()
 // ANCHOR: Redux Devtools Condition
 const reduxDevtoolsToggle: boolean = process.env.NODE_ENV === 'development' && checkWindowObject;
 
-// ANCHOR: Initialize Redux Store
-export const reduxStore = createStore(
-  rootReducers,
+// ANCHOR: Redux Middlewares
+const reduxMiddlewares = [
   reduxDevtoolsToggle
   && (window as any).__REDUX_DEVTOOLS_EXTENSION__
   && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(sagaMiddleware),
+  sagaMiddleware,
+];
+
+// ANCHOR: Initialize Redux Store
+export const reduxStore = createStore(
+  rootReducers,
+  applyMiddleware(...reduxMiddlewares),
 );
 
 // ANCHOR: Run Sagas
