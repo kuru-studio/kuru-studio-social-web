@@ -1,6 +1,6 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
-import { USER_FETCH_FAILED, USER_FETCH_REQUESTED, USER_FETCH_SUCCEEDED } from './constants';
-import Api from '...'
+import { call, put, takeLatest } from 'redux-saga/effects'
+import { USER_FETCH_FAILED, USER_FETCH_REQUESTED, USER_FETCH_SUCCEEDED } from '../constants';
+import { getUsers } from '../../utilities/request/getUsers';
 
 function* fetchUser(action) {
    try {

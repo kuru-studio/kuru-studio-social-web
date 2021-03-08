@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { AUTHENTICATE } from '../../action/constants';
+import { AUTHENTICATE } from '../../constants';
 
 // ANCHOR: Interface
 interface IAction {
