@@ -5,7 +5,7 @@ import "firebase/auth";
 
 // ANCOR: Redux Imports
 import { reduxStore } from '../../state/store';
-import { authenticateAction } from '../../state/action';
+import { authenticateAction } from '../../state/actions';
 
 // ANCHOR: Utility Imports
 import { checkWindowObject } from '../checkWindowObject';

@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 // ANCOR: Redux Saga Imports
 import createSagaMiddleware from 'redux-saga'
-import { rootSaga } from '../middleware'
+import { rootSaga } from '../workers'
 
 // ANCHOR: Create Saga Middleware
 const sagaMiddleware = createSagaMiddleware()
