@@ -23,11 +23,11 @@ export default () => {
     <ul>
       <li>
         Token:
-        { ` ${token}` }
+        { `${token}` }
       </li>
       <li>
         User:
-        { ` ${user}` }
+        { `${user !== null ? user[0].id : 'empty'}` }
       </li>
       <li>
         <button
