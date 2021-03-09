@@ -73,7 +73,7 @@ export function listenToCurrentUserState(): void {
   if (checkWindowObject) {
     firebase.auth().onAuthStateChanged(function(user: any): void {
       if (user) {
-        user.getIdToken().then((idToken: string): void => {
+        user.getIdToken(true).then((idToken: string): void => {
           reduxStore.dispatch(authenticateAction(idToken));
         });
         window.sessionStorage.user = JSON.stringify(user);
