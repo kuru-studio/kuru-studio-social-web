@@ -5,38 +5,36 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // ANCHOR: Redux Actions
-import { incrementAction, decrementAction } from '../../state/actions';
+import { userFetchRequestedAction } from '../../state/actions/modules/user/userFetchRequested';
 
 // ANCHOR: Interface
 interface IRootState {
-  counterReducer: number;
+  authenticateReducer: any;
+  userReducer: any;
 }
 
 // ANCHOR: Redux Page
 export default () => {
-  const counter = useSelector((state: IRootState) => state.counterReducer);
+  const token = useSelector((state: IRootState) => state.authenticateReducer);
+  const user = useSelector((state: IRootState) => state.userReducer);
   const dispatch = useDispatch();
 
   return (
     <ul>
       <li>
-        Count:
-        { ` ${counter}` }
+        Token:
+        { ` ${token}` }
+      </li>
+      <li>
+        User:
+        { ` ${user}` }
       </li>
       <li>
         <button
           type="button"
-          onClick={() => dispatch(incrementAction(5))}
+          onClick={() => dispatch(userFetchRequestedAction(token))}
         >
-          increase
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          onClick={() => dispatch(decrementAction(5))}
-        >
-          decrease
+         get user
         </button>
       </li>
     </ul>
