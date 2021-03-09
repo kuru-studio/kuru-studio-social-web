@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // ANCHOR: Redux Actions
-import { incrementAction, decrementAction } from '../state/action';
+import { incrementAction, decrementAction } from '../../state/actions';
 
 // ANCHOR: Interface
 interface IRootState {

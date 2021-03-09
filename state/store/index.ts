@@ -1,15 +1,24 @@
 // ANCOR: Redux Imports
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { rootReducers } from '../reducers';
-import { checkWindowObject } from '../../utilities/checkWindowObject';
 
-// ANCHOR: Redux Devtools Condition
-const reduxDevtoolsToggle: boolean = process.env.NODE_ENV === 'development' && checkWindowObject;
+// ANCOR: Redux Devtools Extension Import
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+// ANCOR: Redux Saga Imports
+import createSagaMiddleware from 'redux-saga'
+import { rootSaga } from '../workers'
+
+// ANCHOR: Create Saga Middleware
+const sagaMiddleware = createSagaMiddleware()
 
 // ANCHOR: Initialize Redux Store
 export const reduxStore = createStore(
   rootReducers,
-  reduxDevtoolsToggle
-  && (window as any).__REDUX_DEVTOOLS_EXTENSION__
-  && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
+  composeWithDevTools(
+    applyMiddleware(sagaMiddleware)
+  )
 );
+
+// ANCHOR: Run Sagas
+sagaMiddleware.run(rootSaga);

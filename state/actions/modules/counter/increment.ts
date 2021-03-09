@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { INCREMENT } from '../../constants';
+import { INCREMENT } from '../../../constants';
 
 // ANCHOR: Increment Action
 export const incrementAction = (amount: number) => ({

@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { INCREMENT, DECREMENT } from '../../action/constants';
+import { INCREMENT, DECREMENT } from '../../constants';
 
 // ANCHOR: Interface
 interface IAction {
