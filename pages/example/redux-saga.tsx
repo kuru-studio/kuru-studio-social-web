@@ -10,13 +10,13 @@ import { requestUsersAction } from '../../state/actions';
 // ANCHOR: Interface
 interface IRootState {
   userToken: string | null;
-  userReducer: any;
+  users: any;
 }
 
 // ANCHOR: Redux Page
 export default () => {
   const userToken = useSelector((state: IRootState) => state.userToken);
-  const user = useSelector((state: IRootState) => state.userReducer);
+  const users = useSelector((state: IRootState) => state.users);
   const dispatch = useDispatch();
 
   return (
@@ -27,7 +27,7 @@ export default () => {
       </li>
       <li>
         User:
-        { `${user !== null ? user[0].id : 'empty'}` }
+        { `${users !== null ? users[0].id : 'empty'}` }
       </li>
       <li>
         <button
