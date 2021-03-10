@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects'
 import { getUsersRequest } from '../../../../utilities/request/user/getUsersRequest';
-import { userFetchFailedAction } from '../../../actions/modules/user/userFetchFailed';
-import { userFetchSucceededAction } from '../../../actions/modules/user/userFetchSucceeded';
+import { userFetchFailedAction } from '../../../actions';
+import { userFetchSucceededAction } from '../../../actions';
 
 export function* getUsersWorker(payload: any) {
    try {
