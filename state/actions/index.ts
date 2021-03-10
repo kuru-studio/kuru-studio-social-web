@@ -4,8 +4,8 @@ export { getUsersAction } from './modules/user/getUsersAction';
 export { requestUsersAction } from './modules/user/requestUsersAction';
 
 // ANCHOR: Export Counter Actions
-export { decrementAction } from './modules/counter/decrement';
-export { incrementAction } from './modules/counter/increment';
+export { decrementCounterAction } from './modules/counter/decrementCounterAction';
+export { incrementCounterAction } from './modules/counter/incrementCounterAction';
 
 // ANCHOR: Export Error Action
 export { getErrorMessageAction } from './modules/error/getErrorMessageAction';

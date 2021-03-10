@@ -7,8 +7,8 @@ interface IAction {
   payload: any;
 }
 
-// ANCHOR: User Reducer
-export const errorReducer = (state = null, action: IAction) => {
+// ANCHOR: Get Error Reducer
+export const getErrorReducer = (state = null, action: IAction) => {
   switch(action.type) {
     case GET_ERROR_MESSAGE:
       return action.payload;

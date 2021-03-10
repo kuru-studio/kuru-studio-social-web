@@ -2,15 +2,15 @@
 import { combineReducers } from 'redux';
 
 // ANCHOR: Module Imports
-import { counterReducer } from './modules/counter';
+import { getCounterReducer } from './modules/counter';
 import { getUserTokenReducer } from './modules/authenticate';
-import { errorReducer } from './modules/error';
-import { userReducer } from './modules/user';
+import { getErrorReducer } from './modules/error';
+import { getUsersReducer } from './modules/user';
 
 // ANCHOR: Combine Reducers
 export const rootReducers = combineReducers({
-  counterReducer,
+  counter: getCounterReducer,
   userToken: getUserTokenReducer,
-  errorReducer,
-  userReducer,
+  error: getErrorReducer,
+  users: getUsersReducer,
 });

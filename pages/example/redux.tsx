@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // ANCHOR: Redux Actions
-import { incrementAction, decrementAction } from '../../state/actions';
+import { incrementCounterAction, decrementCounterAction } from '../../state/actions';
 
 // ANCHOR: Interface
 interface IRootState {
@@ -14,7 +14,7 @@ interface IRootState {
 
 // ANCHOR: Redux Page
 export default () => {
-  const counter = useSelector((state: IRootState) => state.counterReducer);
+  const counter = useSelector((state: IRootState) => state.counter);
   const dispatch = useDispatch();
 
   return (
@@ -26,7 +26,7 @@ export default () => {
       <li>
         <button
           type="button"
-          onClick={() => dispatch(incrementAction(5))}
+          onClick={() => dispatch(incrementCounterAction(5))}
         >
           increase
         </button>
@@ -34,7 +34,7 @@ export default () => {
       <li>
         <button
           type="button"
-          onClick={() => dispatch(decrementAction(5))}
+          onClick={() => dispatch(decrementCounterAction(5))}
         >
           decrease
         </button>

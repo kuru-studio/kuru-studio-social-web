@@ -7,8 +7,8 @@ interface IAction {
   payload: any;
 }
 
-// ANCHOR: User Reducer
-export const userReducer = (state = null, action: IAction) => {
+// ANCHOR: Get Users Reducer
+export const getUsersReducer = (state = null, action: IAction) => {
   switch(action.type) {
     case GET_USERS:
       return action.payload;
