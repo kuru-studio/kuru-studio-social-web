@@ -19,3 +19,6 @@ Naming a constant should start with the verb followed by the data being manipula
 
 ### How should I name a worker?
 ...
+
+For more information about case types you can check the link below:
+https://chaseadams.io/posts/most-common-programming-case-types/
