@@ -3,14 +3,14 @@ import { combineReducers } from 'redux';
 
 // ANCHOR: Module Imports
 import { counterReducer } from './modules/counter';
-import { authenticateReducer } from './modules/authenticate';
+import { getUserTokenReducer } from './modules/authenticate';
 import { errorReducer } from './modules/error';
 import { userReducer } from './modules/user';
 
 // ANCHOR: Combine Reducers
 export const rootReducers = combineReducers({
   counterReducer,
-  authenticateReducer,
+  userToken: getUserTokenReducer,
   errorReducer,
   userReducer,
 });

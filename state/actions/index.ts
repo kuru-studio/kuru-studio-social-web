@@ -1,5 +1,5 @@
-// ANCHOR: Export Authenticate Action
-export { authenticateAction } from './modules/authenticate';
+// ANCHOR: Export User Actions
+export { getUserTokenAction } from './modules/user/getUserTokenAction';
 
 // ANCHOR: Export Counter Actions
 export { decrementAction } from './modules/counter/decrement';

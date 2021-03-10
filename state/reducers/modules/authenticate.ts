@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { AUTHENTICATE } from '../../constants';
+import { GET_USER_TOKEN } from '../../constants';
 
 // ANCHOR: Interface
 interface IAction {
@@ -8,9 +8,9 @@ interface IAction {
 }
 
 // ANCHOR: Authenticate Reducer
-export const authenticateReducer = (state = null, action: IAction) => {
+export const getUserTokenReducer = (state = null, action: IAction) => {
   switch(action.type) {
-    case AUTHENTICATE:
+    case GET_USER_TOKEN:
       return action.payload;
     default:
       return state;

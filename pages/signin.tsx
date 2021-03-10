@@ -17,13 +17,13 @@ import {
 
 // ANCHOR: Interface
 interface IRootState {
-  authenticateReducer: string | null;
+  userToken: string | null;
 }
 
 // ANCHOR: Sign In Page
 export default () => {
-  const token: string | null = useSelector((state: IRootState) => state.authenticateReducer);
-  const userSignedIn: boolean = token ? true : false;
+  const userToken: string | null = useSelector((state: IRootState) => state.userToken);
+  const userSignedIn: boolean = userToken ? true : false;
 
   return (
     <ul>

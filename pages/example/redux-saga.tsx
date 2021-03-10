@@ -9,13 +9,13 @@ import { userFetchRequestedAction } from '../../state/actions/modules/user/userF
 
 // ANCHOR: Interface
 interface IRootState {
-  authenticateReducer: any;
+  userToken: string | null;
   userReducer: any;
 }
 
 // ANCHOR: Redux Page
 export default () => {
-  const token = useSelector((state: IRootState) => state.authenticateReducer);
+  const userToken = useSelector((state: IRootState) => state.userToken);
   const user = useSelector((state: IRootState) => state.userReducer);
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ export default () => {
     <ul>
       <li>
         Token:
-        { `${token}` }
+        { `${userToken}` }
       </li>
       <li>
         User:
@@ -32,7 +32,7 @@ export default () => {
       <li>
         <button
           type="button"
-          onClick={() => dispatch(userFetchRequestedAction(token))}
+          onClick={() => dispatch(userFetchRequestedAction(userToken))}
         >
          get user
         </button>
