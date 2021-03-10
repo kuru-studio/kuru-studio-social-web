@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects'
 import { getUsersRequest } from '../../../../utilities/request/user/getUsersRequest';
-import { userFetchFailedAction } from '../../../actions';
+import { getErrorMessageAction } from '../../../actions';
 import { userFetchSucceededAction } from '../../../actions';
 
 export function* getUsersWorker(payload: any) {
@@ -8,6 +8,6 @@ export function* getUsersWorker(payload: any) {
       const user = yield call(getUsersRequest, payload);
       yield put(userFetchSucceededAction(user));
    } catch (e) {
-      yield put(userFetchFailedAction(e.message));
+      yield put(getErrorMessageAction(e.message));
    }
 }

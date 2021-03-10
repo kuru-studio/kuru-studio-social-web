@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { USER_FETCH_FAILED } from '../../constants';
+import { GET_ERROR_MESSAGE } from '../../constants';
 
 // ANCHOR: Interface
 interface IAction {
@@ -10,7 +10,7 @@ interface IAction {
 // ANCHOR: User Reducer
 export const errorReducer = (state = null, action: IAction) => {
   switch(action.type) {
-    case USER_FETCH_FAILED:
+    case GET_ERROR_MESSAGE:
       return action.payload;
     default:
       return state;
