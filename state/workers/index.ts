@@ -1,7 +1,7 @@
 import { takeLatest } from 'redux-saga/effects'
-import { USER_FETCH_REQUESTED } from '../constants';
+import { REQUEST_USERS } from '../constants';
 import { getUsersWorker } from './modules/user/getUsersWorker';
 
 export function* rootSaga() {
-  yield takeLatest(USER_FETCH_REQUESTED, getUsersWorker);
+  yield takeLatest(REQUEST_USERS, getUsersWorker);
 }

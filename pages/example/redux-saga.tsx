@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // ANCHOR: Redux Actions
-import { userFetchRequestedAction } from '../../state/actions/modules/user/userFetchRequested';
+import { requestUsersAction } from '../../state/actions';
 
 // ANCHOR: Interface
 interface IRootState {
@@ -32,7 +32,7 @@ export default () => {
       <li>
         <button
           type="button"
-          onClick={() => dispatch(userFetchRequestedAction(userToken))}
+          onClick={() => dispatch(requestUsersAction(userToken))}
         >
          get user
         </button>

@@ -1,7 +1,7 @@
 // ANCHOR: Export User Actions
 export { getUserTokenAction } from './modules/user/getUserTokenAction';
-export { userFetchSucceededAction } from './modules/user/userFetchSucceeded';
-export { userFetchRequestedAction } from './modules/user/userFetchRequested';
+export { getUsersAction } from './modules/user/getUsersAction';
+export { requestUsersAction } from './modules/user/requestUsersAction';
 
 // ANCHOR: Export Counter Actions
 export { decrementAction } from './modules/counter/decrement';
