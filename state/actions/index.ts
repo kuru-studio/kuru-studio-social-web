@@ -1,11 +1,11 @@
-// ANCHOR: Export User Actions
-export { getUserTokenAction } from './modules/user/getUserTokenAction';
-export { getUsersAction } from './modules/user/getUsersAction';
-export { requestUsersAction } from './modules/user/requestUsersAction';
+// ANCHOR: Counter Actions
+export { decrementCounterAction, incrementCounterAction } from './modules/counterAction';
 
-// ANCHOR: Export Counter Actions
-export { decrementCounterAction } from './modules/counter/decrementCounterAction';
-export { incrementCounterAction } from './modules/counter/incrementCounterAction';
+// ANCHOR: Error Action
+export { getErrorMessageAction } from './modules/errorMessageAction';
 
-// ANCHOR: Export Error Action
-export { getErrorMessageAction } from './modules/error/getErrorMessageAction';
+// ANCHOR: Users List Actions
+export { getUsersAction, requestUsersAction } from './modules/usersListAction';
+
+// ANCHOR: User Token Action
+export { getUserTokenAction } from './modules/userTokenAction';
