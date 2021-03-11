@@ -5,7 +5,7 @@ export { decrementCounterAction, incrementCounterAction } from './modules/counte
 export { getErrorMessageAction } from './modules/errorMessageAction';
 
 // ANCHOR: Users List Actions
-export { getUsersAction, requestUsersAction } from './modules/usersListAction';
+export { storeUsersListAction, requestUsersListAction } from './modules/usersListAction';
 
 // ANCHOR: User Token Action
-export { getUserTokenAction } from './modules/userTokenAction';
+export { userTokenAction } from './modules/userTokenAction';
