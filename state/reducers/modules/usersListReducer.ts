@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { STORE_USERS_LIST_CONSTANT } from '../../constants';
+import { STORE_USERS_LIST_CONSTANT } from '@state/constants';
 
 // ANCHOR: Interface
 interface IAction {

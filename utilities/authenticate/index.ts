@@ -4,11 +4,11 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 // ANCHOR: Redux Imports
-import { reduxStore } from '../../state/store';
-import { userTokenAction } from '../../state/actions';
+import { reduxStore } from '@state/store';
+import { userTokenAction } from '@state/actions';
 
 // ANCHOR: Utility Imports
-import { checkWindowObject } from '../checkWindowObject';
+import { checkWindowObject } from '@utilities/checkWindowObject';
 
 // ANCHOR Firebase Config Types
 interface IFirebaseConfig {

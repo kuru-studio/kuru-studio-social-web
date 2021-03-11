@@ -2,10 +2,10 @@
 import { takeLatest } from 'redux-saga/effects'
 
 // ANCHOR: Constant Import
-import { REQUEST_USERS_LIST_CONSTANT } from '../constants';
+import { REQUEST_USERS_LIST_CONSTANT } from '@state/constants';
 
 // ANCHOR: Worker Import
-import { usersListWorker } from './modules/usersListWorker';
+import { usersListWorker } from '@state/workers/modules/usersListWorker';
 
 // ANCHOR: Root Saga
 export function* rootSaga() {

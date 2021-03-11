@@ -1,5 +1,5 @@
 // ANCHOR: Constant Import
-import { DECREMENT_COUNTER_CONSTANT, INCREMENT_COUNTER_CONSTANT } from '../../constants';
+import { DECREMENT_COUNTER_CONSTANT, INCREMENT_COUNTER_CONSTANT } from '@state/constants';
 
 // ANCHOR: Decrement Counter Action
 export const decrementCounterAction = (amount: number) => ({

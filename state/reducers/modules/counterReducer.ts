@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { INCREMENT_COUNTER_CONSTANT, DECREMENT_COUNTER_CONSTANT } from '../../constants';
+import { INCREMENT_COUNTER_CONSTANT, DECREMENT_COUNTER_CONSTANT } from '@state/constants';
 
 // ANCHOR: Interface
 interface IAction {

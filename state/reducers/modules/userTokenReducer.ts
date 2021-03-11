@@ -1,5 +1,5 @@
 // ANCHOR: Constant Import
-import { USER_TOKEN_CONSTANT } from '../../constants';
+import { USER_TOKEN_CONSTANT } from '@state/constants';
 
 // ANCHOR: Interface
 interface IAction {
