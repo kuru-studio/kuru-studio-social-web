@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { GET_ERROR_MESSAGE } from '../../constants';
+import { ERROR_MESSAGE_CONSTANT } from '../../constants';
 
 // ANCHOR: Interface
 interface IAction {
@@ -10,7 +10,7 @@ interface IAction {
 // ANCHOR: Error Message Reducer
 export const errorMessageReducer = (state = null, action: IAction) => {
   switch(action.type) {
-    case GET_ERROR_MESSAGE:
+    case ERROR_MESSAGE_CONSTANT:
       return action.payload;
     default:
       return state;

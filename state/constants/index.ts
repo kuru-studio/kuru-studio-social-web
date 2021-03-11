@@ -1,11 +1,11 @@
 // ANCHOR: Counter Constants
-export { INCREMENT_COUNTER, DECREMENT_COUNTER } from "./modules/counterConstant";
+export { INCREMENT_COUNTER_CONSTANT, DECREMENT_COUNTER_CONSTANT } from "./modules/counterConstant";
 
 // ANCHOR: Error Message Constant
-export { GET_ERROR_MESSAGE } from "./modules/errorMessageConstant";
+export { ERROR_MESSAGE_CONSTANT } from "./modules/errorMessageConstant";
 
 // ANCHOR: Users List Constants
-export { GET_USERS, REQUEST_USERS } from "./modules/usersListConstant";
+export { STORE_USERS_LIST_CONSTANT, REQUEST_USERS_LIST_CONSTANT } from "./modules/usersListConstant";
 
 // ANCHOR: User Token Constant
-export { GET_USER_TOKEN } from "./modules/userTokenConstant";
+export { USER_TOKEN_CONSTANT } from "./modules/userTokenConstant";

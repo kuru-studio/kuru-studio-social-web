@@ -1,3 +1,3 @@
 // ANCHOR: Users List Constants
-export const GET_USERS      = "GET_USERS";
-export const REQUEST_USERS  = "REQUEST_USERS";
+export const STORE_USERS_LIST_CONSTANT    = "STORE_USERS_LIST_CONSTANT";
+export const REQUEST_USERS_LIST_CONSTANT  = "REQUEST_USERS_LIST_CONSTANT";

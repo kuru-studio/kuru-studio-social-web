@@ -1,8 +1,8 @@
 // ANCHOR: Constants Import
-import { GET_USER_TOKEN } from '../../constants';
+import { USER_TOKEN_CONSTANT } from '../../constants';
 
 // ANCHOR: User Token Action
 export const userTokenAction = (token: string | null) => ({
-  type: GET_USER_TOKEN,
+  type: USER_TOKEN_CONSTANT,
   payload: token,
 })

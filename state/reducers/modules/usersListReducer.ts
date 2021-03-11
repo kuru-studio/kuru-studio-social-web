@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { GET_USERS } from '../../constants';
+import { STORE_USERS_LIST_CONSTANT } from '../../constants';
 
 // ANCHOR: Interface
 interface IAction {
@@ -10,7 +10,7 @@ interface IAction {
 // ANCHOR: Users List Reducer
 export const usersListReducer = (state = null, action: IAction) => {
   switch(action.type) {
-    case GET_USERS:
+    case STORE_USERS_LIST_CONSTANT:
       return action.payload;
     default:
       return state;

@@ -1,2 +1,2 @@
 // ANCHOR: Error Message Constant
-export const GET_ERROR_MESSAGE = "GET_ERROR_MESSAGE";
+export const ERROR_MESSAGE_CONSTANT = "ERROR_MESSAGE_CONSTANT";

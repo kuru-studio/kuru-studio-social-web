@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { GET_USER_TOKEN } from '../../constants';
+import { USER_TOKEN_CONSTANT } from '../../constants';
 
 // ANCHOR: Interface
 interface IAction {
@@ -10,7 +10,7 @@ interface IAction {
 // ANCHOR: User Token Reducer
 export const userTokenReducer = (state = null, action: IAction) => {
   switch(action.type) {
-    case GET_USER_TOKEN:
+    case USER_TOKEN_CONSTANT:
       return action.payload;
     default:
       return state;

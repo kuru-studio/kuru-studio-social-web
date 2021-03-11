@@ -1,14 +1,14 @@
 // ANCHOR: Constants Import
-import { GET_USERS, REQUEST_USERS } from '../../constants';
+import { STORE_USERS_LIST_CONSTANT, REQUEST_USERS_LIST_CONSTANT } from '../../constants';
 
-// ANCHOR: Get Users List Action
+// ANCHOR: Store Users List Action
 export const storeUsersListAction = (users: any) => ({
-  type: GET_USERS,
+  type: STORE_USERS_LIST_CONSTANT,
   payload: users,
 })
 
 // ANCHOR: Request Users List Action
 export const requestUsersListAction = (token: string | null) => ({
-  type: REQUEST_USERS,
+  type: REQUEST_USERS_LIST_CONSTANT,
   payload: token,
 })
