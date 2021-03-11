@@ -23,7 +23,6 @@
       "@definitions/*": ["definitions/*"],
       "@pages/*": ["pages/*"],
       "@state/*": ["state/*"],
-      "@templates/*": ["templates/*"],
       "@types/*": ["types/*"],
       "@utilities/*": ["utilities/*"]
     }
