@@ -1,4 +1,4 @@
-// ANCHOR: Constants Import
+// ANCHOR: Constant Import
 import { DECREMENT_COUNTER_CONSTANT, INCREMENT_COUNTER_CONSTANT } from '../../constants';
 
 // ANCHOR: Decrement Counter Action

@@ -3,7 +3,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 
-// ANCOR: Redux Imports
+// ANCHOR: Redux Imports
 import { reduxStore } from '../../state/store';
 import { userTokenAction } from '../../state/actions';
 

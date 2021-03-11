@@ -1,7 +1,7 @@
-// ANCOR: Redux Imports
+// ANCHOR: Redux Import
 import { combineReducers } from 'redux';
 
-// ANCHOR: Module Imports
+// ANCHOR: Module Import
 import { counterReducer } from './modules/counterReducer';
 import { errorMessageReducer } from './modules/errorMessageReducer';
 import { usersListReducer } from './modules/usersListReducer';

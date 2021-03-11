@@ -1,4 +1,4 @@
-// ANCHOR: Constants Import
+// ANCHOR: Constant Import
 import { STORE_USERS_LIST_CONSTANT, REQUEST_USERS_LIST_CONSTANT } from '../../constants';
 
 // ANCHOR: Store Users List Action

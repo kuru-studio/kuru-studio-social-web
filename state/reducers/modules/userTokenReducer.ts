@@ -1,4 +1,4 @@
-// ANCHOR: Constants Import
+// ANCHOR: Constant Import
 import { USER_TOKEN_CONSTANT } from '../../constants';
 
 // ANCHOR: Interface

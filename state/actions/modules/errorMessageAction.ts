@@ -1,4 +1,4 @@
-// ANCHOR: Constants Import
+// ANCHOR: Constant Import
 import { ERROR_MESSAGE_CONSTANT } from '../../constants';
 
 // ANCHOR: Error Message Action
