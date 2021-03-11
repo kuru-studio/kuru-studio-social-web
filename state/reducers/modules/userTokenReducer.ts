@@ -7,8 +7,8 @@ interface IAction {
   payload: string | null;
 }
 
-// ANCHOR: Authenticate Reducer
-export const getUserTokenReducer = (state = null, action: IAction) => {
+// ANCHOR: User Token Reducer
+export const userTokenReducer = (state = null, action: IAction) => {
   switch(action.type) {
     case GET_USER_TOKEN:
       return action.payload;

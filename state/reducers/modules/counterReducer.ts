@@ -7,8 +7,8 @@ interface IAction {
   payload: number;
 }
 
-// ANCHOR: Get Counter Reducer
-export const getCounterReducer = (state = 0, action: IAction) => {
+// ANCHOR: Counter Reducer
+export const counterReducer = (state = 0, action: IAction) => {
   switch(action.type) {
     case INCREMENT_COUNTER:
       return state + action.payload;

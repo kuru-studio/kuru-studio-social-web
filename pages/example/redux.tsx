@@ -9,7 +9,7 @@ import { incrementCounterAction, decrementCounterAction } from '../../state/acti
 
 // ANCHOR: Interface
 interface IRootState {
-  counterReducer: number;
+  counter: number;
 }
 
 // ANCHOR: Redux Page

@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { GET_USERS } from '../../constants';
+import { GET_ERROR_MESSAGE } from '../../constants';
 
 // ANCHOR: Interface
 interface IAction {
@@ -7,10 +7,10 @@ interface IAction {
   payload: any;
 }
 
-// ANCHOR: Get Users Reducer
-export const getUsersReducer = (state = null, action: IAction) => {
+// ANCHOR: Error Message Reducer
+export const errorMessageReducer = (state = null, action: IAction) => {
   switch(action.type) {
-    case GET_USERS:
+    case GET_ERROR_MESSAGE:
       return action.payload;
     default:
       return state;
