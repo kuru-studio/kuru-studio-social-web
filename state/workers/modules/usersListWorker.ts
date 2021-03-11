@@ -1,8 +1,13 @@
+// ANCHOR: Redux Saga Import
 import { call, put } from 'redux-saga/effects'
-import { getUsersRequest } from '../../../utilities/request/user/getUsersRequest';
-import { errorMessageAction } from '../../actions';
-import { storeUsersListAction } from '../../actions';
 
+// ANCHOR: Utility Import
+import { getUsersRequest } from '../../../utilities/request/user/getUsersRequest';
+
+// ANCHOR: Action Import
+import { errorMessageAction, storeUsersListAction } from '../../actions';
+
+// ANCHOR: Users List Worker
 export function* usersListWorker(payload: any) {
    try {
       const users = yield call(getUsersRequest, payload);
