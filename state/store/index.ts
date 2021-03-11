@@ -1,13 +1,13 @@
 // ANCHOR: Redux Import
 import { createStore, applyMiddleware } from 'redux';
-import { rootReducers } from '../reducers';
+import { rootReducers } from '@state/reducers';
 
 // ANCHOR: Redux Devtools Extension Import
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 // ANCHOR: Redux Saga Import
 import createSagaMiddleware from 'redux-saga'
-import { rootSaga } from '../workers'
+import { rootSaga } from '@state/workers'
 
 // ANCHOR: Create Saga Middleware
 const sagaMiddleware = createSagaMiddleware()

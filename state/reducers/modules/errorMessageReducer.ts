@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { ERROR_MESSAGE_CONSTANT } from '../../constants';
+import { ERROR_MESSAGE_CONSTANT } from '@state/constants';
 
 // ANCHOR: Interface
 interface IAction {

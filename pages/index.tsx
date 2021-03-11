@@ -2,7 +2,7 @@
 import Head from 'next/head'
 
 // ANCHOR: Template
-import LandingTemplate from '../templates/Landing'
+import LandingTemplate from '@templates/Landing'
 
 // ANCHOR: HomePage
 function HomePage() {

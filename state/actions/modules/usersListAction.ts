@@ -1,5 +1,5 @@
 // ANCHOR: Constant Import
-import { STORE_USERS_LIST_CONSTANT, REQUEST_USERS_LIST_CONSTANT } from '../../constants';
+import { STORE_USERS_LIST_CONSTANT, REQUEST_USERS_LIST_CONSTANT } from '@state/constants';
 
 // ANCHOR: Store Users List Action
 export const storeUsersListAction = (users: any) => ({

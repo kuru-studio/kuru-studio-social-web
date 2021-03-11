@@ -1,6 +1,6 @@
-import { GET } from "../";
+import { GET } from "@utilities/request";
 
-export async function getUsersRequest(token: any): Promise<any> {
+export async function usersListRequest(token: any): Promise<any> {
   const data = await GET('/users', {
     headers: {
       'Content-Type': 'application/json',

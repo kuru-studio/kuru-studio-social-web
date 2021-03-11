@@ -1,5 +1,5 @@
 // ANCHOR: Constant Import
-import { ERROR_MESSAGE_CONSTANT } from '../../constants';
+import { ERROR_MESSAGE_CONSTANT } from '@state/constants';
 
 // ANCHOR: Error Message Action
 export const errorMessageAction = (message: any) => ({
