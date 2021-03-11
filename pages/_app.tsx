@@ -4,7 +4,7 @@ import App from 'next/app';
 // ANCHOR: General Imports
 import { listenToCurrentUserState } from '../utilities/authenticate';
 
-// ANCOR: Redux Imports
+// ANCHOR: Redux Imports
 import { reduxStore } from '../state/store';
 import { Provider as ReduxProvider } from 'react-redux';
 

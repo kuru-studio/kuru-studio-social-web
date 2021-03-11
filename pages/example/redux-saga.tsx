@@ -5,34 +5,34 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // ANCHOR: Redux Actions
-import { userFetchRequestedAction } from '../../state/actions/modules/user/userFetchRequested';
+import { requestUsersListAction } from '../../state/actions';
 
 // ANCHOR: Interface
 interface IRootState {
-  authenticateReducer: any;
-  userReducer: any;
+  userToken: string | null;
+  usersList: any;
 }
 
 // ANCHOR: Redux Page
 export default () => {
-  const token = useSelector((state: IRootState) => state.authenticateReducer);
-  const user = useSelector((state: IRootState) => state.userReducer);
+  const userToken = useSelector((state: IRootState) => state.userToken);
+  const usersList = useSelector((state: IRootState) => state.usersList);
   const dispatch = useDispatch();
 
   return (
     <ul>
       <li>
         Token:
-        { `${token}` }
+        { `${userToken}` }
       </li>
       <li>
         User:
-        { `${user !== null ? user[0].id : 'empty'}` }
+        { `${usersList !== null ? usersList[0].id : 'empty'}` }
       </li>
       <li>
         <button
           type="button"
-          onClick={() => dispatch(userFetchRequestedAction(token))}
+          onClick={() => dispatch(requestUsersListAction(userToken))}
         >
          get user
         </button>

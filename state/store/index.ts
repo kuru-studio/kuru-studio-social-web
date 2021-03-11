@@ -1,11 +1,11 @@
-// ANCOR: Redux Imports
+// ANCHOR: Redux Import
 import { createStore, applyMiddleware } from 'redux';
 import { rootReducers } from '../reducers';
 
-// ANCOR: Redux Devtools Extension Import
+// ANCHOR: Redux Devtools Extension Import
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-// ANCOR: Redux Saga Imports
+// ANCHOR: Redux Saga Import
 import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from '../workers'
 
@@ -20,5 +20,5 @@ export const reduxStore = createStore(
   )
 );
 
-// ANCHOR: Run Sagas
+// ANCHOR: Run Redux Saga
 sagaMiddleware.run(rootSaga);

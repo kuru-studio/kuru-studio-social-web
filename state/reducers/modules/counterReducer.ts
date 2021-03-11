@@ -1,5 +1,5 @@
 // ANCHOR: Constants Import
-import { INCREMENT, DECREMENT } from '../../constants';
+import { INCREMENT_COUNTER_CONSTANT, DECREMENT_COUNTER_CONSTANT } from '../../constants';
 
 // ANCHOR: Interface
 interface IAction {
@@ -10,9 +10,9 @@ interface IAction {
 // ANCHOR: Counter Reducer
 export const counterReducer = (state = 0, action: IAction) => {
   switch(action.type) {
-    case INCREMENT:
+    case INCREMENT_COUNTER_CONSTANT:
       return state + action.payload;
-    case DECREMENT:
+    case DECREMENT_COUNTER_CONSTANT:
       return state - action.payload;
     default:
       return state;

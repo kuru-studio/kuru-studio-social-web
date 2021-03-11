@@ -3,9 +3,9 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 
-// ANCOR: Redux Imports
+// ANCHOR: Redux Imports
 import { reduxStore } from '../../state/store';
-import { authenticateAction } from '../../state/actions';
+import { userTokenAction } from '../../state/actions';
 
 // ANCHOR: Utility Imports
 import { checkWindowObject } from '../checkWindowObject';
@@ -74,11 +74,11 @@ export function listenToCurrentUserState(): void {
     firebase.auth().onAuthStateChanged(function(user: any): void {
       if (user) {
         user.getIdToken(true).then((idToken: string): void => {
-          reduxStore.dispatch(authenticateAction(idToken));
+          reduxStore.dispatch(userTokenAction(idToken));
         });
         window.sessionStorage.user = JSON.stringify(user);
       } else {
-        reduxStore.dispatch(authenticateAction(null));
+        reduxStore.dispatch(userTokenAction(null));
       }
     });
   }

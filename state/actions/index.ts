@@ -1,6 +1,11 @@
-// ANCHOR: Export Authenticate Action
-export { authenticateAction } from './modules/authenticate';
+// ANCHOR: Export Counter Action
+export { decrementCounterAction, incrementCounterAction } from './modules/counterAction';
 
-// ANCHOR: Export Counter Actions
-export { decrementAction } from './modules/counter/decrement';
-export { incrementAction } from './modules/counter/increment';
+// ANCHOR: Export Error Message Action
+export { errorMessageAction } from './modules/errorMessageAction';
+
+// ANCHOR: Export Users List Action
+export { storeUsersListAction, requestUsersListAction } from './modules/usersListAction';
+
+// ANCHOR: Export User Token Action
+export { userTokenAction } from './modules/userTokenAction';

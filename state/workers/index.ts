@@ -1,7 +1,13 @@
+// ANCHOR: Redux Saga Import
 import { takeLatest } from 'redux-saga/effects'
-import { USER_FETCH_REQUESTED } from '../constants';
-import { getUsersWorker } from './modules/user/getUsersWorker';
 
+// ANCHOR: Constant Import
+import { REQUEST_USERS_LIST_CONSTANT } from '../constants';
+
+// ANCHOR: Worker Import
+import { usersListWorker } from './modules/usersListWorker';
+
+// ANCHOR: Root Saga
 export function* rootSaga() {
-  yield takeLatest(USER_FETCH_REQUESTED, getUsersWorker);
+  yield takeLatest(REQUEST_USERS_LIST_CONSTANT, usersListWorker);
 }
