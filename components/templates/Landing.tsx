@@ -1,9 +1,9 @@
-// ANCHOR: Next
+// ANCHOR: Next Import
 import Link from 'next/link'
 
-// ANCHOR: Organisms
-import HeaderOrganism from "@components/organisms/Header";
-import FooterOrganism from "@components/organisms/Footer";
+// ANCHOR: Organism Import
+import FooterOrganism from "@components/organisms/FooterOrganism";
+import HeaderOrganism from "@components/organisms/HeaderOrganism";
 
 // ANCHOR: Landing Template
 export default function LandingTemplate() {
