@@ -22,6 +22,7 @@
       "@components/*": ["components/*"],
       "@definitions/*": ["definitions/*"],
       "@pages/*": ["pages/*"],
+      "@requests/*": ["requests/*"],
       "@state/*": ["state/*"],
       "@types/*": ["types/*"],
       "@utilities/*": ["utilities/*"]
