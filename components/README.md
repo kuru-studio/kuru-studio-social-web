@@ -6,4 +6,4 @@ This project follows the [Atomic Design](https://xd.adobe.com/ideas/process/ui-d
 
 Components are the Molecules and Organisms part.
 
-Atoms will be using the [Ant Design](http://ant.design/) framework.
+Atoms will be using the [Kuru Studio Design](https://design.kuru.studio/) components.
