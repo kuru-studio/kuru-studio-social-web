@@ -3810,6 +3810,13 @@ klona@^2.0.3:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.4.tgz#7bb1e3affb0cb8624547ef7e8f6708ea2e39dfc0"
   integrity sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==
 
+kuru-studio-design@^1.0.0, kuru-studio-design@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/kuru-studio-design/-/kuru-studio-design-1.0.1.tgz#ef760c9ff057d6fea205d7067a1508a8488b997d"
+  integrity sha512-u7SwfMHpByECdE1flKjVqn2/OkeY2bNKlCCAND3F/3Q7XCYvf40qH/oTaVn0beUB8GszKPaLQCWGEPdEie01bQ==
+  dependencies:
+    kuru-studio-design "^1.0.0"
+
 leven@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/leven/-/leven-3.1.0.tgz#77891de834064cccba82ae7842bb6b14a13ed7f2"
