@@ -13,7 +13,7 @@ import {
   facebookSignIn,
   twitterSignIn,
   userSignOut,
-} from '@utilities/authenticate';
+} from '@utilities/authenticate-old';
 
 // ANCHOR: Interface
 interface IRootState {
