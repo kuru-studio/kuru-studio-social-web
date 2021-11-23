@@ -17,9 +17,6 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Lint
-        run: yarn lint
-
       - name: Deploy
         uses: amondnet/vercel-action@v19
         with:
