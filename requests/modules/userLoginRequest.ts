@@ -4,19 +4,10 @@ import { POST } from "@requests/index";
 // ANCHOR: GraphQL Definition
 import { userLoginDefinition } from "@definitions/modules/userLoginDefinition";
 
-// ANCHOR User Login Interface
-interface UserLoginInterface {
-  data: {
-    signinUser: {
-      token: string;
-      user: {
-        id: string;
-      };
-    };
-  };
-}
+// ANCHOR: Data Type
+import { UserLoginType } from "@types/modules/userLoginType";
 
-export async function userLoginRequest(email: string, password: string): Promise<UserLoginInterface> {
+export async function userLoginRequest(email: string, password: string): Promise<UserLoginType> {
   const data = await POST('/data', {
     query: userLoginDefinition(email, password),
     headers: {
