@@ -2,7 +2,7 @@
 const API = process.env.API_PATH ?? '';
 
 // ANCHOR: Base Request
-export function apiFetch(url: string, config?: RequestInit) {
+export function apiFetch(url: string, config?: any) {
   return fetch(`${API}${url}`, {
     ...config,
     mode: 'cors',
@@ -10,7 +10,7 @@ export function apiFetch(url: string, config?: RequestInit) {
 }
 
 // ANCHOR: GET Request
-export function GET(url: string, config?: RequestInit) {
+export function GET(url: string, config?: any) {
   return apiFetch(url, {
     ...config,
     method: 'GET',
@@ -18,7 +18,7 @@ export function GET(url: string, config?: RequestInit) {
 }
 
 // ANCHOR: POST Request
-export function POST(url: string, data?: any, config?: RequestInit) {
+export function POST(url: string, data?: any, config?: any) {
   return apiFetch(url, {
     ...config,
     method: 'POST',
@@ -27,7 +27,7 @@ export function POST(url: string, data?: any, config?: RequestInit) {
 }
 
 // ANCHOR: PUT Request
-export function PUT(url: string, data?: any, config?: RequestInit) {
+export function PUT(url: string, data?: any, config?: any) {
   return apiFetch(url, {
     ...config,
     method: 'PUT',
@@ -36,7 +36,7 @@ export function PUT(url: string, data?: any, config?: RequestInit) {
 }
 
 // ANCHOR: PATCH Request
-export function PATCH(url: string, data?: any, config?: RequestInit) {
+export function PATCH(url: string, data?: any, config?: any) {
   return apiFetch(url, {
     ...config,
     method: 'PATCH',
@@ -45,7 +45,7 @@ export function PATCH(url: string, data?: any, config?: RequestInit) {
 }
 
 // ANCHOR: DELETE Request
-export function DELETE(url: string, config?: RequestInit) {
+export function DELETE(url: string, config?: any) {
   return apiFetch(url, {
     ...config,
     method: 'DELETE',
