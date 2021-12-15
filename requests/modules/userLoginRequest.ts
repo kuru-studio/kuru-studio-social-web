@@ -2,7 +2,7 @@
 import { POST } from "@requests/index";
 
 // ANCHOR: GraphQL Definition
-import { userLoginDefinition } from "@definitions/modules/userLoginDefinition";
+import { userLoginDefinition } from "@definitions";
 
 // ANCHOR: Data Type
 import { userLoginRequestType } from "@types";
