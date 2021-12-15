@@ -25,7 +25,8 @@
       "@requests/*": ["requests/*"],
       "@state/*": ["state/*"],
       "@types/*": ["types/*"],
-      "@utilities/*": ["utilities/*"]
+      "@utilities/*": ["utilities/*"],
+      "@schemas/*": ["schemas/*"]
     }
   },
   "include": [
