@@ -1,4 +1,4 @@
-export interface UserLoginType {
+export interface UserLoginRequestType {
   data: {
     signinUser: {
       token: string;

@@ -5,9 +5,9 @@ import { POST } from "@requests/index";
 import { userLoginDefinition } from "@definitions/modules/userLoginDefinition";
 
 // ANCHOR: Data Type
-import { UserLoginType } from "@types/modules/userLoginType";
+import { userLoginRequestType } from "@types";
 
-export async function userLoginRequest(email: string, password: string): Promise<UserLoginType> {
+export async function userLoginRequest(email: string, password: string): Promise<userLoginRequestType> {
   const data = await POST('/data', {
     query: userLoginDefinition(email, password),
     headers: {
