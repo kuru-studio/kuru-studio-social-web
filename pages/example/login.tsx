@@ -2,6 +2,12 @@
 import * as React from 'react';
 import { useState } from 'react';
 
+// ANCHOR: Redux
+import { useDispatch } from 'react-redux';
+
+// ANCHOR: Request
+import { userLoginRequest } from '@requests/modules/userLoginRequest';
+
 // ANCHOR: Login Page
 export default () => {
   const [email, setEmail] = useState();
@@ -9,7 +15,7 @@ export default () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`${email} - ${password}`);
+    console.log(userLoginRequest(email, password));
   }
 
   return (
