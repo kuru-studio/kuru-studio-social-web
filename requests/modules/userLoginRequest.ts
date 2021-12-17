@@ -10,7 +10,7 @@ import { userLoginDefinition } from "../../definitions";
 import { userLoginRequestType } from "../../types";
 
 export async function userLoginRequest(email: string, password: string): Promise<userLoginRequestType> {
-  const data = await gqlRequest('/data', { query: userLoginDefinition(email, password) });
+  const data = await gqlRequest('/data', userLoginDefinition(email, password));
 
   return (await data) as userLoginRequestType;
 }
