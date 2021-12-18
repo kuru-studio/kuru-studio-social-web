@@ -1,3 +1,3 @@
 ### What's here?
 
-Types will live inside this folder.
+Types and Interfaces will live inside this folder.
