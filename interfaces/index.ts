@@ -1,2 +1,3 @@
 // ANCHOR: Export User Type
-export type { userLoginRequestInterface } from "./modules/userLoginRequestInterface";
+export type { userLoginRequestResultInterface } from "./modules/userLoginRequestResultInterface";
+export type { userLoginRequestParametersInterface } from "./modules/userLoginRequestParametersInterface";

@@ -15,7 +15,7 @@ export default () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(await userLoginRequest(email, password));
+    console.log(await userLoginRequest({ email, password }));
   }
 
   return (
