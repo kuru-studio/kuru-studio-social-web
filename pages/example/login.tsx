@@ -13,7 +13,7 @@ import { userTokenAction } from '@state/actions';
 
 // ANCHOR: Interface
 interface IRootState {
-  counter: string | null;
+  userToken: string | null;
 }
 
 // ANCHOR: Login Page
