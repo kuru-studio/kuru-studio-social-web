@@ -2,7 +2,7 @@
 import { spawn } from 'redux-saga/effects'
 
 // ANCHOR: Worker Import
-import { usersListWorker } from '@state/workers/modules/usersListWorker';
+import { usersListWorker } from './modules/usersListWorker';
 
 // ANCHOR: Root Workers
 export function* rootWorkers() {
