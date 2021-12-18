@@ -29,4 +29,5 @@ export function checkCookie() {
     if (user != "" && user != null) {
       setCookie("username", user, 365);
     }
-  };
+  }
+};
