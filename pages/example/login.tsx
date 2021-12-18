@@ -13,9 +13,9 @@ export default () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(userLoginRequest(email, password));
+    console.log(await userLoginRequest(email, password));
   }
 
   return (
