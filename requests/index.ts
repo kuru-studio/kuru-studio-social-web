@@ -1,5 +1,5 @@
 // ANCHOR: Import GraphQL Request
-import { request, gql } from 'graphql-request'
+import { request } from 'graphql-request'
 
 // ANCHOR: Declare the API variable
 const API = process.env.API_PATH ?? '';
