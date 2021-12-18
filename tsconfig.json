@@ -26,7 +26,7 @@
       "@state/*": ["state/*"],
       "@interfaces/*": ["interfaces/*"],
       "@utilities/*": ["utilities/*"],
-      "@schemas/*": ["schemas/*"]
+      "@validations/*": ["validations/*"]
     }
   },
   "include": [

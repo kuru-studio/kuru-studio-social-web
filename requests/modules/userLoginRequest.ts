@@ -7,8 +7,14 @@ import { userLoginDefinition } from "@definitions/index";
 // ANCHOR: Data Type
 import type { userLoginRequestInterface } from "@interfaces/index";
 
-export async function userLoginRequest(email: string, password: string): Promise<userLoginRequestInterface> {
-  const data = await GQL('/data', userLoginDefinition(email, password));
+// ANCHOR: Validation
+import { userLoginValidation } from "@validations/index";
 
-  return (await data) as userLoginRequestInterface;
+export async function userLoginRequest(email: string, password: string): Promise<userLoginRequestInterface> {
+  if(userLoginValidation({ email, password })){
+    const data = await GQL('/data', userLoginDefinition(email, password));
+    return (await data) as userLoginRequestInterface;
+  } else {
+    alert("Validation failed!");
+  };
 }
