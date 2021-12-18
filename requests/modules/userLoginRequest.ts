@@ -2,15 +2,13 @@
 import { GQL } from "@requests/index";
 
 // ANCHOR: GraphQL Definition
-// import { userLoginDefinition } from "@definitions";
-import { userLoginDefinition } from "../../definitions";
+import { userLoginDefinition } from "@definitions/index";
 
 // ANCHOR: Data Type
-// import { userLoginRequestType } from "@types";
-import { userLoginRequestType } from "../../types";
+import type { userLoginRequestInterface } from "@interfaces/index";
 
-export async function userLoginRequest(email: string, password: string): Promise<userLoginRequestType> {
+export async function userLoginRequest(email: string, password: string): Promise<userLoginRequestInterface> {
   const data = await GQL('/data', userLoginDefinition(email, password));
 
-  return (await data) as userLoginRequestType;
+  return (await data) as userLoginRequestInterface;
 }

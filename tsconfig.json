@@ -24,7 +24,7 @@
       "@pages/*": ["pages/*"],
       "@requests/*": ["requests/*"],
       "@state/*": ["state/*"],
-      "@types/*": ["types/*"],
+      "@interfaces/*": ["interfaces/*"],
       "@utilities/*": ["utilities/*"],
       "@schemas/*": ["schemas/*"]
     }
