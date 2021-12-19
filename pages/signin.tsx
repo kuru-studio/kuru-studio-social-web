@@ -10,6 +10,7 @@ import { userLoginRequest } from '@requests/modules/userLoginRequest';
 
 // ANCHOR: Utilities
 import { setUserToken } from '@utilities/setUserToken';
+import { clearUserToken } from '@utilities/clearUserToken';
 
 // ANCHOR: Interface
 interface IRootState {
@@ -31,9 +32,21 @@ export default () => {
     setUserToken(token);
   }
 
-  return (
-    <div>
-      Token:{ ` ${token}` }
+  const handleLogOut = (event) => {
+    event.preventDefault();
+    clearUserToken();
+  }
+
+  const SignedInComponent = () => {
+    return (
+      <div>
+        <button onClick={handleLogOut}>Log Out</button>
+      </div>
+    );
+  }
+
+  const SignedOutComponent = () => {
+    return (
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -51,6 +64,10 @@ export default () => {
         />
         <input type="submit" />
       </form>
-    </div>
+    );
+  }
+
+  return (
+    <React.Fragment>{token != null ? <SignedInComponent /> : <SignedOutComponent />}</React.Fragment>
   );
 };

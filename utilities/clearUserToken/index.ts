@@ -1,4 +1,14 @@
+// ANCHOR: Redux Imports
+import { reduxStore } from '@state/store';
+import { userTokenAction } from '@state/actions';
+
+// ANCHOR: Utilities
+import { setCookie } from "@utilities/cookie";
+import { checkWindowObject } from "@utilities/checkWindowObject";
+
 export function clearUserToken() {
-  // turn userToken on redux store to 'null'
-  // turn userToken on cookies to an empty string
+  if (checkWindowObject) {
+    setCookie("userToken", "", 0);
+  }
+  reduxStore.dispatch(userTokenAction(null));
 }
