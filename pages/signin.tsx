@@ -33,7 +33,7 @@ export default () => {
     const user = await userLoginRequest({ email, password });
     const token = user.signinUser.token;
     if (checkWindowObject) {
-      setCookie("userToken", token, 365);
+      setCookie("userToken", token, 14);
     }
     dispatch(userTokenAction(token));
   }
