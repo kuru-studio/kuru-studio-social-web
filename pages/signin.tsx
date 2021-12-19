@@ -8,12 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 // ANCHOR: Request
 import { userLoginRequest } from '@requests/modules/userLoginRequest';
 
-// ANCHOR: Redux Actions
-import { userTokenAction } from '@state/actions';
-
 // ANCHOR: Utilities
-import { setCookie } from '@utilities/cookie';
-import { checkWindowObject } from "@utilities/checkWindowObject";
+import { setUserToken } from '@utilities/setUserToken';
 
 // ANCHOR: Interface
 interface IRootState {
@@ -32,10 +28,7 @@ export default () => {
     event.preventDefault();
     const user = await userLoginRequest({ email, password });
     const token = user.signinUser.token;
-    if (checkWindowObject) {
-      setCookie("userToken", token, 14);
-    }
-    dispatch(userTokenAction(token));
+    setUserToken(token);
   }
 
   return (
