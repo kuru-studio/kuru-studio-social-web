@@ -24,8 +24,9 @@
       "@pages/*": ["pages/*"],
       "@requests/*": ["requests/*"],
       "@state/*": ["state/*"],
-      "@types/*": ["types/*"],
-      "@utilities/*": ["utilities/*"]
+      "@interfaces/*": ["interfaces/*"],
+      "@utilities/*": ["utilities/*"],
+      "@validations/*": ["validations/*"]
     }
   },
   "include": [

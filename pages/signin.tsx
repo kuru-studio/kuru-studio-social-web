@@ -1,46 +1,63 @@
 // ANCHOR: React
 import * as React from 'react';
-
-// ANCHOR: Next
-import Link from 'next/link'
+import { useState } from 'react';
 
 // ANCHOR: Redux
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 
-// ANCHOR: Authentication
-import {
-  googleSignIn,
-  facebookSignIn,
-  twitterSignIn,
-  userSignOut,
-} from '@utilities/authenticate';
+// ANCHOR: Request
+import { userLoginRequest } from '@requests/modules/userLoginRequest';
+
+// ANCHOR: Redux Actions
+import { userTokenAction } from '@state/actions';
+
+// ANCHOR: Utilities
+import { setCookie } from '@utilities/cookie';
+import { checkWindowObject } from "@utilities/checkWindowObject";
 
 // ANCHOR: Interface
 interface IRootState {
   userToken: string | null;
 }
 
-// ANCHOR: Sign In Page
+// ANCHOR: Login Page
 export default () => {
-  const userToken: string | null = useSelector((state: IRootState) => state.userToken);
-  const userSignedIn: boolean = userToken ? true : false;
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const dispatch = useDispatch();
+
+  const token = useSelector((state: IRootState) => state.userToken);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const user = await userLoginRequest({ email, password });
+    const token = user.signinUser.token;
+    if (checkWindowObject) {
+      setCookie("userToken", token, 14);
+    }
+    dispatch(userTokenAction(token));
+  }
 
   return (
-    <ul>
-      <li>
-        {
-          userSignedIn
-            ? <button onClick={userSignOut}>Sign Out</button>
-            : (
-                <>
-                  <button onClick={googleSignIn}>Sign In with Google</button>
-                  <button onClick={facebookSignIn}>Sign In with Facebook</button>
-                  <button onClick={twitterSignIn}>Sign In with Twitter</button>
-                </>
-              )
-        }
-      </li>
-      <li><Link href="/">Homepage</Link></li>
-    </ul>
-  )
-}
+    <div>
+      Token:{ ` ${token}` }
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          value={email}
+          onChange={(e: any) => setEmail(e.target.value)}
+          placeholder="Enter Email"
+          required
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e: any) => setPassword(e.target.value)}
+          placeholder="Enter Password"
+          required
+        />
+        <input type="submit" />
+      </form>
+    </div>
+  );
+};

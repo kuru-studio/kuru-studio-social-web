@@ -1,0 +1,1 @@
+export type userLoginValidationInterface = boolean;
