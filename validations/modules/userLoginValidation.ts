@@ -9,7 +9,7 @@ const userLoginShape = schema.object().shape({
   password: schema.string().required(),
 });
 
-export function userLoginValidation(data: userLoginRequestParametersInterface): boolean {
-  userLoginShape.isValid(data).then((valid) => true);
+export function userLoginValidation(userLoginRequestParameters: userLoginRequestParametersInterface): boolean {
+  userLoginShape.isValid(userLoginRequestParameters).then((valid) => true);
   return false;
 }
