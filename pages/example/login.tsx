@@ -11,6 +11,10 @@ import { userLoginRequest } from '@requests/modules/userLoginRequest';
 // ANCHOR: Redux Actions
 import { userTokenAction } from '@state/actions';
 
+// ANCHOR: Utilities
+import { setCookie } from '@utilities/cookie';
+import { checkWindowObject } from "@utilities/checkWindowObject";
+
 // ANCHOR: Interface
 interface IRootState {
   userToken: string | null;
@@ -27,7 +31,11 @@ export default () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const user = await userLoginRequest({ email, password });
-    dispatch(userTokenAction(user.signinUser.token));
+    const token = user.signinUser.token;
+    if (checkWindowObject) {
+      setCookie("userToken", token, 365);
+    }
+    dispatch(userTokenAction(token));
   }
 
   return (
