@@ -2,14 +2,14 @@
 import * as schema from 'yup';
 
 // ANCHOR: GraphQL Definition
-import { userLoginRequestParametersInterface } from '@interfaces/index';
+import type { userLoginRequestParametersInterface } from '@interfaces/index';
+import type { userLoginValidationInterface } from '@interfaces/index';
 
 const userLoginShape = schema.object().shape({
-  email: schema.string().required(),
-  password: schema.string().required(),
+  email: schema.string().required("Email is required"),
+  password: schema.string().required("Password is required"),
 });
 
-export function userLoginValidation(userLoginRequestParameters: userLoginRequestParametersInterface): boolean {
-  userLoginShape.isValid(userLoginRequestParameters).then((valid) => true);
-  return false;
+export async function userLoginValidation(userLoginRequestParameters: userLoginRequestParametersInterface): Promise<userLoginValidationInterface> {
+  return await userLoginShape.isValid(userLoginRequestParameters);
 }

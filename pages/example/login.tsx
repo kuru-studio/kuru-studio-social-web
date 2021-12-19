@@ -27,9 +27,7 @@ export default () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const user = await userLoginRequest({ email, password });
-    if (user) {
-      dispatch(userTokenAction(user.data.signinUser.token));
-    }
+    dispatch(userTokenAction(user.signinUser.token));
   }
 
   return (
