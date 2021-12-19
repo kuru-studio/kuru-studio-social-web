@@ -12,5 +12,9 @@ import type { userLoginRequestParametersInterface } from "@interfaces/index";
 import { userLoginValidation } from "@validations/index";
 
 export async function userLoginRequest(userLoginRequestParameters: userLoginRequestParametersInterface): Promise<userLoginRequestResultInterface> {
-  return (await GQL('/data', userLoginDefinition(userLoginRequestParameters))) as userLoginRequestResultInterface;
+  if (userLoginValidation(userLoginRequestParameters)) {
+    return (await GQL('/data', userLoginDefinition(userLoginRequestParameters))) as userLoginRequestResultInterface;
+  } else {
+    console.log("Validation error!");
+  }
 }
