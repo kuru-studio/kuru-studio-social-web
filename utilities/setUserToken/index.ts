@@ -8,7 +8,7 @@ import { checkWindowObject } from "@utilities/checkWindowObject";
 
 export function setUserToken(token: string) {
   if (checkWindowObject) {
-    setCookie("userToken", token, 14);
+    setCookie("userToken", token, process.env.COOKIE_DURATION);
   }
   reduxStore.dispatch(userTokenAction(token));
 }
