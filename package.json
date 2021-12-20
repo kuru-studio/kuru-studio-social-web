@@ -8,6 +8,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "firebase": "^8.0.2",
+    "formik": "^2.2.9",
     "graphql": "^16.1.0",
     "graphql-request": "^3.7.0",
     "kuru-studio-design": "^1.0.1",
