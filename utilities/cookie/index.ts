@@ -24,16 +24,8 @@ export function getCookie(cname) {
   return "";
 };
 
-// ANCHOR: Check Cookie
+// ANCHOR: Clear Cookie
 // DOCS: https://www.w3schools.com/js/js_cookies.asp
-export function checkCookie() {
-  let user = getCookie("username");
-  if (user != "") {
-    alert("Welcome again " + user);
-  } else {
-    user = prompt("Please enter your name:", "");
-    if (user != "" && user != null) {
-      setCookie("username", user, 365);
-    }
-  }
+export function clearCookie(cname) {
+  setCookie(cname, "", 0);
 };

@@ -3,12 +3,12 @@ import { reduxStore } from '@state/store';
 import { userTokenAction } from '@state/actions';
 
 // ANCHOR: Utilities
-import { setCookie } from "@utilities/cookie";
+import { clearCookie } from "@utilities/cookie";
 import { checkWindowObject } from "@utilities/checkWindowObject";
 
 export function clearUserToken() {
   if (checkWindowObject) {
-    setCookie("userToken", "", 0);
+    clearCookie("userToken");
   }
   reduxStore.dispatch(userTokenAction(null));
 }
