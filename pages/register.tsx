@@ -1,47 +1,17 @@
 // ANCHOR: React
 import * as React from 'react';
 
-// ANCHOR: Redux
-import { useSelector, useDispatch } from 'react-redux';
-
-// ANCHOR: Request
-import { userLoginRequest } from '@requests/modules/userLoginRequest';
-
-// ANCHOR: Utilities
-import { setUserToken } from '@utilities/setUserToken';
-import { clearUserToken } from '@utilities/clearUserToken';
-
 // ANCHOR: Formik
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-// ANCHOR: Interface
-interface IRootState {
-  userToken: string | null;
-}
+// ANCHOR: Request
+import { userRegisterRequest } from '@requests/modules/userRegisterRequest';
 
 // ANCHOR: Login Page
 export default () => {
-  const dispatch = useDispatch();
-
-  const token = useSelector((state: IRootState) => state.userToken);
-
-  const handleLogOut = (event) => {
-    event.preventDefault();
-    clearUserToken();
-  }
-
-  const SignedInComponent = () => {
-    return (
-      <div>
-        <button onClick={handleLogOut}>Log Out</button>
-      </div>
-    );
-  }
-
-  const SignedOutComponent = () => {
-    return (
+  return (
      <Formik
-       initialValues={{ email: '', password: '' }}
+       initialValues={{ name: '', email: '', password: '' }}
        validate={values => {
          const errors = {};
          if (!values.email) {
@@ -54,13 +24,14 @@ export default () => {
          return errors;
        }}
        onSubmit={async (values) => {
-          const user = await userLoginRequest(values);
-          const token = user.signinUser.token;
-          setUserToken(token);
+          const user = await userRegisterRequest(values);
+          alert(user);
        }}
      >
        {({ isSubmitting }) => (
          <Form>
+           <Field name="name" placeholder="Name" />
+           <ErrorMessage name="name" component="div" />
            <Field type="email" name="email" />
            <ErrorMessage name="email" component="div" />
            <Field type="password" name="password" />
@@ -71,10 +42,5 @@ export default () => {
          </Form>
        )}
      </Formik>
-    );
-  }
-
-  return (
-    <React.Fragment>{token != null ? <SignedInComponent /> : <SignedOutComponent />}</React.Fragment>
   );
 };
