@@ -13,7 +13,7 @@ export function userRegisterDefinition(userRegisterRequestParameters: userRegist
           }
         }
       ) {
-        token
+        id
         name
         email
       }
