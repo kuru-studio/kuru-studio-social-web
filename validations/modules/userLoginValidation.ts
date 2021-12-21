@@ -5,11 +5,20 @@ import * as schema from 'yup';
 import type { userLoginRequestParametersInterface } from '@interfaces/index';
 import type { userLoginValidationInterface } from '@interfaces/index';
 
+// ANCHOR: Utility Import
+import { errorLog } from '@utilities/errorLog';
+
+// ANCHOR: Constant Import
+import { ERROR_VALIDATION_CONSTANT } from '@state/constants';
+
 const userLoginShape = schema.object().shape({
   email: schema.string().required("Email is required"),
   password: schema.string().required("Password is required"),
 });
 
 export async function userLoginValidation(userLoginRequestParameters: userLoginRequestParametersInterface): Promise<userLoginValidationInterface> {
-  return await userLoginShape.isValid(userLoginRequestParameters);
+  const isValid = await userLoginShape.isValid(userLoginRequestParameters).catch((error) => {
+    errorLog(ERROR_VALIDATION_CONSTANT, error);
+  });
+  return !!isValid;
 }

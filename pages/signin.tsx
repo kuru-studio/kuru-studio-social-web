@@ -1,6 +1,5 @@
 // ANCHOR: React
 import * as React from 'react';
-import { useState } from 'react';
 
 // ANCHOR: Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,12 +7,12 @@ import { useSelector, useDispatch } from 'react-redux';
 // ANCHOR: Request
 import { userLoginRequest } from '@requests/modules/userLoginRequest';
 
-// ANCHOR: Redux Actions
-import { userTokenAction } from '@state/actions';
-
 // ANCHOR: Utilities
-import { setCookie } from '@utilities/cookie';
-import { checkWindowObject } from "@utilities/checkWindowObject";
+import { setUserToken } from '@utilities/setUserToken';
+import { clearUserToken } from '@utilities/clearUserToken';
+
+// ANCHOR: Formik
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 // ANCHOR: Interface
 interface IRootState {
@@ -22,42 +21,60 @@ interface IRootState {
 
 // ANCHOR: Login Page
 export default () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
   const dispatch = useDispatch();
 
   const token = useSelector((state: IRootState) => state.userToken);
 
-  const handleSubmit = async (event) => {
+  const handleLogOut = (event) => {
     event.preventDefault();
-    const user = await userLoginRequest({ email, password });
-    const token = user.signinUser.token;
-    if (checkWindowObject) {
-      setCookie("userToken", token, 14);
-    }
-    dispatch(userTokenAction(token));
+    clearUserToken();
+  }
+
+  const SignedInComponent = () => {
+    return (
+      <div>
+        <button onClick={handleLogOut}>Log Out</button>
+      </div>
+    );
+  }
+
+  const SignedOutComponent = () => {
+    return (
+     <Formik
+       initialValues={{ email: '', password: '' }}
+       validate={values => {
+         const errors = {};
+         if (!values.email) {
+           errors.email = 'Required';
+         } else if (
+           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+         ) {
+           errors.email = 'Invalid email address';
+         }
+         return errors;
+       }}
+       onSubmit={async (values) => {
+          const user = await userLoginRequest(values);
+          const token = user.signinUser.token;
+          setUserToken(token);
+       }}
+     >
+       {({ isSubmitting }) => (
+         <Form>
+           <Field type="email" name="email" />
+           <ErrorMessage name="email" component="div" />
+           <Field type="password" name="password" />
+           <ErrorMessage name="password" component="div" />
+           <button type="submit" disabled={isSubmitting}>
+             Submit
+           </button>
+         </Form>
+       )}
+     </Formik>
+    );
   }
 
   return (
-    <div>
-      Token:{ ` ${token}` }
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e: any) => setEmail(e.target.value)}
-          placeholder="Enter Email"
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e: any) => setPassword(e.target.value)}
-          placeholder="Enter Password"
-          required
-        />
-        <input type="submit" />
-      </form>
-    </div>
+    <React.Fragment>{token != null ? <SignedInComponent /> : <SignedOutComponent />}</React.Fragment>
   );
 };
