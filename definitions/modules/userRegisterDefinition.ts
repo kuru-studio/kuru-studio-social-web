@@ -1,7 +1,7 @@
 // ANCHOR: Data Type
 import type { userRegisterRequestParametersInterface } from "@interfaces/index";
 
-export function userLoginDefinition(userRegisterRequestParameters: userRegisterRequestParametersInterface) {
+export function userRegisterDefinition(userRegisterRequestParameters: userRegisterRequestParametersInterface) {
   return (`
     mutation {
       createUser(
