@@ -1,13 +1,13 @@
 // ANCHOR: Data Type
-import type { userRegisterRequestParametersInterface } from "@interfaces/index";
+import type { userLoginRequestParametersInterface } from "@interfaces/index";
 
-export function userRegisterDefinition(userRegisterRequestParameters: userRegisterRequestParametersInterface) {
+export function userLoginDefinition(userLoginRequestParameters: userLoginRequestParametersInterface) {
   return (`
     mutation {
       signinUser(
         credentials: {
-          email: "${userRegisterRequestParameters.email}",
-          password: "${userRegisterRequestParameters.password}"
+          email: "${userLoginRequestParameters.email}",
+          password: "${userLoginRequestParameters.password}"
         }
       ) {
         token
