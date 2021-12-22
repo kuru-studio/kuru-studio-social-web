@@ -2,7 +2,7 @@ import * as React from 'react';
 import App from 'next/app';
 
 // ANCHOR: General Imports
-import { checkUserState } from '@utilities/checkUserState';
+import { checkUserState } from '@utilities/index';
 
 // ANCHOR: Redux Imports
 import { reduxStore } from '@state/store';

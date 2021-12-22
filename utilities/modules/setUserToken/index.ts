@@ -3,8 +3,8 @@ import { reduxStore } from '@state/store';
 import { userTokenAction } from '@state/actions';
 
 // ANCHOR: Utilities
-import { setCookie } from "@utilities/cookie";
-import { checkWindowObject } from "@utilities/checkWindowObject";
+import { setCookie } from "@utilities/index";
+import { checkWindowObject } from "@utilities/index";
 
 export function setUserToken(token: string) {
   if (checkWindowObject) {

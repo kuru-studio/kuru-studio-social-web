@@ -6,7 +6,7 @@ import type { userRegisterRequestParametersInterface } from '@interfaces/index';
 import type { userRegisterValidationInterface } from '@interfaces/index';
 
 // ANCHOR: Utility Import
-import { errorLog } from '@utilities/errorLog';
+import { errorLog } from '@utilities/index';
 
 // ANCHOR: Constant Import
 import { ERROR_VALIDATION_CONSTANT } from '@state/constants';

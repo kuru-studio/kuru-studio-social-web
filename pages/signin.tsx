@@ -8,8 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { userLoginRequest } from '@requests/index';
 
 // ANCHOR: Utilities
-import { setUserToken } from '@utilities/setUserToken';
-import { clearUserToken } from '@utilities/clearUserToken';
+import { setUserToken } from '@utilities/index';
+import { clearUserToken } from '@utilities/index';
 
 // ANCHOR: Formik
 import { Formik, Form, Field, ErrorMessage } from 'formik';
