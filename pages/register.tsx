@@ -5,7 +5,7 @@ import * as React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 // ANCHOR: Request
-import { userRegisterRequest } from '@requests/modules/userRegisterRequest';
+import { userRegisterRequest } from '@requests/index';
 
 // ANCHOR: Login Page
 export default () => {

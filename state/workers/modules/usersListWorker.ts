@@ -2,7 +2,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 
 // ANCHOR: Utility Import
-import { usersListRequest } from '@requests/modules/usersListRequest';
+import { usersListRequest } from '@requests/index';
 
 // ANCHOR: Action Import
 import { errorMessageAction, storeUsersListAction } from '@state/actions';

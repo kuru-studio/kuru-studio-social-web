@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // ANCHOR: Request
-import { userLoginRequest } from '@requests/modules/userLoginRequest';
+import { userLoginRequest } from '@requests/index';
 
 // ANCHOR: Utilities
 import { setUserToken } from '@utilities/setUserToken';

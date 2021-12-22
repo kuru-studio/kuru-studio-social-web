@@ -1,5 +1,5 @@
 // ANCHOR: GQL request
-import { GQL } from "@requests/index";
+import { GQL } from "@requests/method";
 
 // ANCHOR: GraphQL Definition
 import { userRegisterDefinition } from "@definitions/index";

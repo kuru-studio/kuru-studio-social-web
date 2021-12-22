@@ -1,4 +1,5 @@
-import { GET } from "@requests/index";
+// ANCHOR: GET request
+import { GET } from "@requests/method";
 
 export async function usersListRequest(token: any): Promise<any> {
   const data = await GET('/users', {
