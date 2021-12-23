@@ -1,22 +1,20 @@
-// ANCHOR: Data Type
-import type { userRegisterRequestParametersInterface } from "@interfaces/index";
+// ANCHOR: Import GraphQL Request
+import { gql } from 'graphql-request';
 
-export function userRegisterDefinition(userRegisterRequestParameters: userRegisterRequestParametersInterface) {
-  return (`
-    mutation {
-      createUser(
-        name: "${userRegisterRequestParameters.name}",
-        authProvider: {
-          credentials: {
-            email: "${userRegisterRequestParameters.email}",
-            password: "${userRegisterRequestParameters.password}"
-          }
+export const userRegisterDefinition = gql`
+  mutation createUser($name: String!, $email: String!, $password: String!) {
+    createUser(
+      name: $name,
+      authProvider: {
+        credentials: {
+          email: $email,
+          password: $password
         }
-      ) {
-        id
-        name
-        email
       }
+    ) {
+      id
+      name
+      email
     }
-  `);
-}
+  }
+`

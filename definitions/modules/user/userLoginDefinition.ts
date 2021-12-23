@@ -1,20 +1,18 @@
-// ANCHOR: Data Type
-import type { userLoginRequestParametersInterface } from "@interfaces/index";
+// ANCHOR: Import GraphQL Request
+import { gql } from 'graphql-request';
 
-export function userLoginDefinition(userLoginRequestParameters: userLoginRequestParametersInterface) {
-  return (`
-    mutation {
-      signinUser(
-        credentials: {
-          email: "${userLoginRequestParameters.email}",
-          password: "${userLoginRequestParameters.password}"
-        }
-      ) {
-        token
-        user {
-          id
-        }
+export const userLoginDefinition = gql`
+  mutation signinUser($email: String!, $password: String!) {
+    signinUser(
+      credentials: {
+        email: $email,
+        password: $password
+      }
+    ) {
+      token
+      user {
+        id
       }
     }
-  `);
-}
+  }
+`

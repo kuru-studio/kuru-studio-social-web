@@ -13,8 +13,8 @@ function $rest(url: string, config?: any) {
 }
 
 // ANCHOR: GraphQL Request
-export function GQL(url: string, query?: any) {
-  return request(`${API}${url}`, query);
+export function GQL(url: string, query: any, variable: any) {
+  return request(`${API}${url}`, query, variable);
 }
 
 // ANCHOR: GET Request

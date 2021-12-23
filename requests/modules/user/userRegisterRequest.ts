@@ -13,7 +13,7 @@ import { userRegisterValidation } from "@validations/index";
 
 export async function userRegisterRequest(userRegisterRequestParameters: userRegisterRequestParametersInterface): Promise<userRegisterRequestResultInterface> {
   if (userRegisterValidation(userRegisterRequestParameters)) {
-    return (await GQL('/data', userRegisterDefinition(userRegisterRequestParameters))) as userRegisterRequestResultInterface;
+    return (await GQL('/data', userRegisterDefinition, userRegisterRequestParameters)) as userRegisterRequestResultInterface;
   } else {
     console.log("Validation error!");
   }
