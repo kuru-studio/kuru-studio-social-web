@@ -7,8 +7,5 @@ export { ERROR_MESSAGE_CONSTANT } from "./modules/errorMessageConstant";
 // ANCHOR: Export Error Constant
 export { ERROR_VALIDATION_CONSTANT } from "./modules/errorConstant";
 
-// ANCHOR: Export Users List Constant
-export { STORE_USERS_LIST_CONSTANT, REQUEST_USERS_LIST_CONSTANT } from "./modules/usersListConstant";
-
 // ANCHOR: Export User Token Constant
 export { USER_TOKEN_CONSTANT } from "./modules/userTokenConstant";
