@@ -2,7 +2,7 @@
 import { gql } from 'graphql-request';
 
 export const userLoginDefinition = gql`
-  mutation signinUser($email: String!, $password: String!) {
+  mutation ($email: String!, $password: String!) {
     signinUser(
       credentials: {
         email: $email,

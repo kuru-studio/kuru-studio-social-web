@@ -2,7 +2,7 @@
 import { gql } from 'graphql-request';
 
 export const userRegisterDefinition = gql`
-  mutation createUser($name: String!, $email: String!, $password: String!) {
+  mutation ($name: String!, $email: String!, $password: String!) {
     createUser(
       name: $name,
       authProvider: {
