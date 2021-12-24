@@ -12,8 +12,8 @@ interface IRootState {
   counter: number;
 }
 
-// ANCHOR: Redux Page
-export default () => {
+// ANCHOR: Example Redux Page
+function ExampleReduxPage() {
   const counter = useSelector((state: IRootState) => state.counter);
   const dispatch = useDispatch();
 
@@ -42,3 +42,5 @@ export default () => {
     </ul>
   );
 };
+
+export default ExampleReduxPage;

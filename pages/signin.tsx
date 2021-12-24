@@ -19,8 +19,8 @@ interface IRootState {
   userToken: string | null;
 }
 
-// ANCHOR: Login Page
-export default () => {
+// ANCHOR: Sign In Page
+function SignInPage() {
   const dispatch = useDispatch();
 
   const token = useSelector((state: IRootState) => state.userToken);
@@ -78,3 +78,5 @@ export default () => {
     <React.Fragment>{token != null ? <SignedInComponent /> : <SignedOutComponent />}</React.Fragment>
   );
 };
+
+export default SignInPage;

@@ -8,7 +8,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { userRegisterRequest } from '@requests/index';
 
 // ANCHOR: Login Page
-export default () => {
+function RegisterPage() {
   return (
      <Formik
        initialValues={{ name: '', email: '', password: '' }}
@@ -44,3 +44,5 @@ export default () => {
      </Formik>
   );
 };
+
+export default RegisterPage;
