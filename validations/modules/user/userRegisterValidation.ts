@@ -3,7 +3,6 @@ import * as schema from 'yup';
 
 // ANCHOR: GraphQL Definition
 import type { userRegisterRequestParametersInterface } from '@interfaces/index';
-import type { userRegisterValidationInterface } from '@interfaces/index';
 
 // ANCHOR: Utility Import
 import { errorLog } from '@utilities/index';
@@ -17,7 +16,7 @@ const userRegisterShape = schema.object().shape({
   password: schema.string().required("Password is required"),
 });
 
-export async function userRegisterValidation(userRegisterRequestParameters: userRegisterRequestParametersInterface): Promise<userRegisterValidationInterface> {
+export async function userRegisterValidation(userRegisterRequestParameters: userRegisterRequestParametersInterface): Promise<boolean> {
   const isValid = await userRegisterShape.isValid(userRegisterRequestParameters).catch((error) => {
     errorLog(ERROR_VALIDATION_CONSTANT, error);
   });
