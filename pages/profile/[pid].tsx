@@ -10,6 +10,7 @@ import { userDataRequest } from '@requests/modules/user/userDataRequest';
 // ANCHOR: Fetch Data
 import { fetchData } from '@utilities/index';
 
+// ANCHOR: Get Server Side Props
 export async function getServerSideProps(context: any) {
   if (!context.params) throw new Error('Missing ID');
 
