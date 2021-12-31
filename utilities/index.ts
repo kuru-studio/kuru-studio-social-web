@@ -13,3 +13,6 @@ export { setUserToken } from "./modules/setUserToken";
 
 // ANCHOR: User Utilities
 export { errorLog } from "./modules/errorLog";
+
+// ANCHOR: Fetch Data
+export { fetchData } from "./modules/fetchData";
