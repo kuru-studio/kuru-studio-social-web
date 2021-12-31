@@ -3,10 +3,9 @@ import * as schema from 'yup';
 
 // ANCHOR: GraphQL Definition
 import type { userLoginRequestParametersInterface } from '@interfaces/index';
-import type { userLoginValidationInterface } from '@interfaces/index';
 
 // ANCHOR: Utility Import
-import { errorLog } from '@utilities/errorLog';
+import { errorLog } from '@utilities/index';
 
 // ANCHOR: Constant Import
 import { ERROR_VALIDATION_CONSTANT } from '@state/constants';
@@ -16,7 +15,7 @@ const userLoginShape = schema.object().shape({
   password: schema.string().required("Password is required"),
 });
 
-export async function userLoginValidation(userLoginRequestParameters: userLoginRequestParametersInterface): Promise<userLoginValidationInterface> {
+export async function userLoginValidation(userLoginRequestParameters: userLoginRequestParametersInterface): Promise<boolean> {
   const isValid = await userLoginShape.isValid(userLoginRequestParameters).catch((error) => {
     errorLog(ERROR_VALIDATION_CONSTANT, error);
   });

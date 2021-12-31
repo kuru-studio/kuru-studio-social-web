@@ -3,8 +3,8 @@ import { reduxStore } from '@state/store';
 import { userTokenAction } from '@state/actions';
 
 // ANCHOR: Utilities
-import { clearCookie } from "@utilities/cookie";
-import { checkWindowObject } from "@utilities/checkWindowObject";
+import { clearCookie } from "@utilities/index";
+import { checkWindowObject } from "@utilities/index";
 
 export function clearUserToken() {
   if (checkWindowObject) {

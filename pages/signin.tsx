@@ -5,11 +5,11 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // ANCHOR: Request
-import { userLoginRequest } from '@requests/modules/userLoginRequest';
+import { userLoginRequest } from '@requests/index';
 
 // ANCHOR: Utilities
-import { setUserToken } from '@utilities/setUserToken';
-import { clearUserToken } from '@utilities/clearUserToken';
+import { setUserToken } from '@utilities/index';
+import { clearUserToken } from '@utilities/index';
 
 // ANCHOR: Formik
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -19,8 +19,8 @@ interface IRootState {
   userToken: string | null;
 }
 
-// ANCHOR: Login Page
-export default () => {
+// ANCHOR: Sign In Page
+function SignInPage() {
   const dispatch = useDispatch();
 
   const token = useSelector((state: IRootState) => state.userToken);
@@ -78,3 +78,5 @@ export default () => {
     <React.Fragment>{token != null ? <SignedInComponent /> : <SignedOutComponent />}</React.Fragment>
   );
 };
+
+export default SignInPage;
