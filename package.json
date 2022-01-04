@@ -8,6 +8,7 @@
   "dependencies": {
     "@kuru-studio/design": "^1.0.1",
     "@types/md5": "^2.3.1",
+    "aws-sdk": "^2.1050.0",
     "dotenv": "^8.2.0",
     "firebase": "^8.0.2",
     "formik": "^2.2.9",

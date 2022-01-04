@@ -16,3 +16,6 @@ export { errorLog } from "./modules/errorLog";
 
 // ANCHOR: Fetch Data
 export { fetchData } from "./modules/fetchData";
+
+// ANCHOR: Upload Data
+export { uploadData } from "./modules/uploadData";
