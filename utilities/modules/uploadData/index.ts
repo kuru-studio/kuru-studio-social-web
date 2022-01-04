@@ -1,26 +1,30 @@
 // ANCHOR: AWS SDK
-import aws from 'aws-sdk';
+import AWS from 'aws-sdk';
 
 // ANCHOR: Upload Data
-export function uploadData(req, res) {
-  aws.config.update({
+export function uploadData(file) {
+  AWS.config.update({
     accessKeyId: process.env.S3_AWS_ACCESS_KEY,
     secretAccessKey: process.env.S3_AWS_SECRET_KEY,
+  });
+
+  const bucket = new AWS.S3({
     region: process.env.S3_AWS_REGION,
-    signatureVersion: 'v4',
   });
 
-  const s3 = new aws.S3();
-  const post = s3.createPresignedPost({
+  const params = {
+    ACL: 'public-read',
     Bucket: process.env.S3_AWS_BUCKET_NAME,
-    Fields: {
-      key: req.query.file,
-    },
-    Expires: 60, // seconds
-    Conditions: [
-      ['content-length-range', 0, 1048576], // up to 1 MB
-    ],
-  });
+    Key: `photos/display-photo/${file.name}`,
+    ContentType: file.type,
+    Body: file,
+  }
 
-  res.status(200).json(post);
+  bucket.upload (params, function (err, data) {
+    if (err) {
+      console.log("Error", err);
+    } if (data) {
+      console.log("Upload Success", data.Location);
+    }
+  });
 };
