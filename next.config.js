@@ -8,6 +8,7 @@ module.exports = {
     S3_AWS_ACCESS_KEY: process.env.S3_AWS_ACCESS_KEY,
     S3_AWS_SECRET_KEY: process.env.S3_AWS_SECRET_KEY,
     S3_AWS_REGION: process.env.S3_AWS_REGION,
-    S3_AWS_BUCKET_NAME: process.env.S3_AWS_BUCKET_NAME
+    S3_AWS_BUCKET_NAME: process.env.S3_AWS_BUCKET_NAME,
+    RECAPTCHA_SITE_KEY: process.env.RECAPTCHA_SITE_KEY
   },
 }
