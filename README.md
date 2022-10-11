@@ -1,5 +1,5 @@
 ### Kuru Studio Social (Web)
-The web of Kuru Studio Social. Hosted on Vercel.
+The website of Kuru Studio Social. Hosted on Vercel.
 
 ## Version
 - Next ~> ^10.0.1
