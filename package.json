@@ -1,6 +1,9 @@
 {
-  "name": "web-2.0",
-  "version": "0.1.0",
+  "name": "social-web",
+  "version": "0.1.2",
+  "repository": "git@github.com:kuru-studio/kuru-studio-social-web.git",
+  "author": "BosEriko <bos.eriko@gmail.com>",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "develop": "next dev -p 3001",
