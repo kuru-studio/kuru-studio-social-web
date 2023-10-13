@@ -1,4 +1,4 @@
-import { getClient } from "../lib/client";
+import { getClient } from "./_utilities/apollo_client";
 import { gql } from "@apollo/client";
 
 export const revalidate = 5;
