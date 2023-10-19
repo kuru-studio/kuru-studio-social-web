@@ -2,29 +2,33 @@
 import { useState } from 'react';
 import { request } from 'graphql-request';
 
-export default function LoginPage() {
+export default function RegisterPage() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignIn = async () => {
     try {
       const mutation = `
-        mutation signIn($email: String!, $password: String!) {
-          signIn(input: {
-            credentials: {
-              email: $email,
-              password: $password
+        mutation createUser($email: String!, $password: String!, $name: String!) {
+          createUser(input: {
+            name: $name,
+            authProvider: {
+              credentials: {
+                email: $email,
+                password: $password
+              }
             }
           }) {
-            token
-            user {
-              id
-            }
+            id
+            name
+            email
           }
         }
       `;
 
       const variables = {
+        name,
         email,
         password,
       };
@@ -40,6 +44,12 @@ export default function LoginPage() {
     <div>
       <input
         type="text"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
