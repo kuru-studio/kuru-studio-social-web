@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: 18.x
 
+      - name: Update npx
+        run: npm install -g npx
+
       - name: Install dependencies
         run: yarn
 
