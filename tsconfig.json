@@ -20,6 +20,10 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"],
+      "@atom": ["./app/_components/atoms"],
+      "@molecule": ["./app/_components/molecules"],
+      "@organism": ["./app/_components/organisms"],
+      "@template": ["./app/_components/templates"],
     },
     "plugins": [
       {

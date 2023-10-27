@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Organism from "./_components/organisms";
+import Organism from "@organism";
 
 export const metadata = {
   title: 'Next.js',
