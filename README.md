@@ -9,7 +9,15 @@ npm run devevelop
 # or
 yarn devevelop
 # or
-pnpm devevelop
+bun develop
+```
+
+## Run testing
+
+To run test:
+
+```bash
+yarn test
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

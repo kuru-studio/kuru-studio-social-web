@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Organism from "@organism";
 
 export const metadata = {
   title: 'Next.js',
@@ -18,7 +19,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body>{children}</body>
+      <Organism.Wrapper>
+        <body>{children}</body>
+      </Organism.Wrapper>
     </html>
   )
 }
