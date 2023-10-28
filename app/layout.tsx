@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Organism from "@organism";
+import "./_styles/globals.css";
 
 export const metadata = {
   title: 'Next.js',
