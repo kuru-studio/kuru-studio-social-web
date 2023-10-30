@@ -7,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <Template.Default>
-      <body>{children}</body>
+      {children}
     </Template.Default>
   )
 }
