@@ -13,11 +13,13 @@ const Navigation = () => {
     },
   ];
   return (
-    <nav className="container mx-auto">
+    <nav className="md:flex md:flex-row">
       {items.map((item, index) => (
-        <Atom.Button type="link" key={index}>
-          <div className="text-white">{item.name}</div>
-        </Atom.Button>
+        <div>
+          <Atom.Button type="link" key={index}>
+            <div className="text-white">{item.name}</div>
+          </Atom.Button>
+        </div>
       ))}
     </nav>
   );
