@@ -1,7 +1,8 @@
 "use client";
-import GitHubButton from 'react-github-btn'
 
-const GitHub = () => {
+import GitHubButton from "react-github-btn";
+
+const Github: React.FunctionComponent = () => {
   return (
     <GitHubButton
       href="https://github.com/kuru-studio/kuru-studio-social"
@@ -13,6 +14,6 @@ const GitHub = () => {
       Star
     </GitHubButton>
   );
-}
+};
 
-export default GitHub;
+export default Github;
