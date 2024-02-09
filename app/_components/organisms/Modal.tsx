@@ -4,16 +4,18 @@ import { hide } from "@/app/_data/modal";
 import { Modal as AntModal } from "antd";
 
 const Modal: React.FunctionComponent = () => {
-  const modal = useAppSelector((state) => state.modal.value);
+  const modalState = useAppSelector((state) => state.modal);
   const dispatch = useAppDispatch();
 
   return (
     <AntModal
-      title="test"
-      open={modal}
+      centered
+      open={modalState.isOpen}
       onCancel={() => dispatch(hide())}
       footer={null}
-    />
+    >
+      {modalState.content}
+    </AntModal>
   );
 };
 

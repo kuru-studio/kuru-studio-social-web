@@ -8,6 +8,11 @@ import { useAppDispatch } from "@/app/_data/hooks";
 const User: React.FunctionComponent = () => {
   const [token, setToken] = useState("");
   const dispatch = useAppDispatch();
+
+  function showAuthModal() {
+    dispatch(show({ content: <div>Log-In Form</div> }));
+  }
+
   return (
     <div className="flex gap-3 m-3 md:m-0">
       <div className="grow md:grow-0">
@@ -16,7 +21,7 @@ const User: React.FunctionComponent = () => {
             style={{ color: "white", fontWeight: "bold" }}
             icon={<LoginOutlined />}
             type="text"
-            onClick={() => dispatch(show())}
+            onClick={showAuthModal}
           >
             Log In
           </Atom.Button>
