@@ -4,6 +4,6 @@ import User from "./User";
 const Molecule = {
   Navigation,
   User,
-}
+};
 
 export default Molecule;
