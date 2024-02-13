@@ -1,30 +1,35 @@
 "use client";
 import { withFormik, FormikProps, FormikErrors, Form } from "formik";
 import { Input as AntInput } from "antd";
+import { show, hide } from "../_data/modal";
 import Link from "next/link";
 import Atom from "../_components/atoms";
-import { useDispatch } from "react-redux";
-import { show, hide } from "../_data/modal";
-import RegisterForm from "./RegisterForm";
+import { useAppDispatch } from "../_data/hooks";
+import SignInForm from "./SignInForm";
 
 interface Values {
   email: string;
   password: string;
+  username: string;
 }
 
 interface Props {}
 
 const InnerForm = (props: FormikProps<Values>) => {
-  const dispatch = useDispatch();
-  function showRegistrationForm() {
+  const dispatch = useAppDispatch();
+
+  function showSignInForm() {
     // hide current modal
     dispatch(hide());
-    dispatch(show({ content: <RegisterForm /> }));
+    dispatch(show({ content: <SignInForm /> }));
   }
   return (
     <Form>
-      <div>
-        <h1 className="font-bold text-xl">Log-In</h1>
+      <div className="flex flex-col gap-2">
+        <h1 className="font-bold text-xl">Create an Account</h1>
+        <p>
+          Create an account to access our curated lorem ipsum dolor sit amet.{" "}
+        </p>
       </div>
       <div className="flex flex-col gap-4 mt-6">
         <AntInput
@@ -45,24 +50,37 @@ const InnerForm = (props: FormikProps<Values>) => {
             props.touched.password && props.errors.password ? "error" : ""
           }
         />
-        <div className="w-full text-right">
-          <Link
-            style={{ color: "gray", textDecoration: "underline" }}
-            href={"/forgot-password"}
-          >
-            Forgot your password?
-          </Link>
+        <AntInput
+          name="username"
+          placeholder="Username"
+          onChange={props.handleChange}
+          onBlur={props.handleBlur}
+          value={props.values.username}
+          status={
+            props.touched.password && props.errors.password ? "error" : ""
+          }
+        />
+        <div className="w-full text-center">
+          By registering, you agree to our{" "}
+          <span>
+            <Link
+              style={{ textDecoration: "underline" }}
+              href={"/forgot-password"}
+            >
+              Terms of Service
+            </Link>
+          </span>
         </div>
 
-        <Atom.Button type="primary">Log In</Atom.Button>
+        <Atom.Button type="primary">Create Account</Atom.Button>
         <div className="flex flex-row justify-between w-full">
-          <p>Don't have an account?</p>
+          <p>Already have an account?</p>
           <Atom.Button
-            onClick={showRegistrationForm}
             style={{ color: "#B61D1D", fontWeight: "bold" }}
             type="text"
+            onClick={showSignInForm}
           >
-            Register
+            Log In
           </Atom.Button>
         </div>
       </div>
@@ -70,12 +88,13 @@ const InnerForm = (props: FormikProps<Values>) => {
   );
 };
 
-const SignInForm = withFormik<Props, Values>({
+const RegisterForm = withFormik<Props, Values>({
   // Transform outer props into form values
   mapPropsToValues: (props) => {
     return {
       email: "",
       password: "",
+      username: "",
     };
   },
 
@@ -84,6 +103,7 @@ const SignInForm = withFormik<Props, Values>({
     let errors: FormikErrors<Values> = {};
     if (!values.email) errors.email = "Email is required";
     if (!values.password) errors.password = "Password is required";
+    if (!values.username) errors.username = "Username is required";
 
     return errors;
   },
@@ -91,4 +111,4 @@ const SignInForm = withFormik<Props, Values>({
   handleSubmit: async (values) => {},
 })(InnerForm);
 
-export default SignInForm;
+export default RegisterForm;

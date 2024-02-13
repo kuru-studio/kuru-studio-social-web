@@ -4,13 +4,14 @@ import { useState } from "react";
 import { LoginOutlined } from "@ant-design/icons";
 import { show } from "@/app/_data/modal";
 import { useAppDispatch } from "@/app/_data/hooks";
+import SignInForm from "@/app/_forms/SignInForm";
 
 const User: React.FunctionComponent = () => {
   const [token, setToken] = useState("");
   const dispatch = useAppDispatch();
 
   function showAuthModal() {
-    dispatch(show({ content: <div>Log-In Form</div> }));
+    dispatch(show({ content: <SignInForm /> }));
   }
 
   return (
