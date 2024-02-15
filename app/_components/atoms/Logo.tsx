@@ -1,7 +1,13 @@
-import Image from 'next/image';
-import LogoImage from '../../_assets/logo.png';
+import * as React from "react";
+import Image from "next/image";
+import LogoImage from "../../_assets/logo.png";
 
-const Logo = ({ width, height }) => {
+interface ILogoProps {
+  width: number;
+  height: number;
+}
+
+const Logo: React.FunctionComponent<ILogoProps> = ({ width, height }) => {
   return (
     <Image
       src={LogoImage}
@@ -10,6 +16,6 @@ const Logo = ({ width, height }) => {
       alt="Kuru Studio Social"
     />
   );
-}
+};
 
 export default Logo;
