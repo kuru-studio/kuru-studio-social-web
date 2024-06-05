@@ -33,7 +33,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     signIn: (state, action) => {
-      state.userToken += action.payload;
+      state.userToken = action.payload;
     },
   },
 });
