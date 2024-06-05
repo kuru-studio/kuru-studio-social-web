@@ -1,43 +1,46 @@
 "use client";
-import { useState } from 'react';
-import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { useState } from "react";
+import { signIn } from "../_data/firebase-auth";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDknUDL6WwsAGFyiBru36J8hKWc6yD6B28",
-  authDomain: "kuru-studio-social-firebase-dv.firebaseapp.com",
-  databaseURL: "https://kuru-studio-social-firebase-dv.firebaseio.com",
-  projectId: "kuru-studio-social-firebase-dv",
-  storageBucket: "kuru-studio-social-firebase-dv.appspot.com",
-  messagingSenderId: "1021677199092",
-  appId: "1:1021677199092:web:db5bf81fe426816a5808a1",
-  measurementId: "G-KNH9M8BJCC"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+// import { initializeApp } from 'firebase/app';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function FirebaseExamplePage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const auth = useSelector((state: any) => state.auth.firebase_auth);
+  const token = useSelector((state: any) => state.auth.userToken);
 
   const handleSignUp = async () => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential: any = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       // User signed up successfully
-      console.log(userCredential.user);
-    } catch (error) {
+      dispatch(signIn(userCredential.user.accessToken));
+    } catch (error: any) {
       setError(error.message);
     }
   };
 
   const handleSignIn = async () => {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential: any = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       // User signed in successfully
-      console.log(userCredential.user.accessToken);
-    } catch (error) {
+      dispatch(signIn(userCredential.user.accessToken));
+    } catch (error: any) {
       setError(error.message);
     }
   };
@@ -59,7 +62,8 @@ export default function FirebaseExamplePage() {
       />
       <button onClick={handleSignUp}>Sign Up</button>
       <button onClick={handleSignIn}>Sign In</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {token}
+      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 }
